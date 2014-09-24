@@ -18,20 +18,31 @@ class CreateDatasetTester:
 
         msg('click login')        
         d.find_link_by_text_click('Log In')
-        
+
         msg('fill in username/pw click login')
         # login
-        d.find_by_id_send_keys('loginForm:credentialsContainer2:0:credValue', auth[0])
-        d.find_by_id_send_keys('loginForm:credentialsContainer2:1:sCredValue', auth[1])            
+        d.find_by_id_send_keys('loginForm:credentialsContainer2:0:credValue', auth[0])  # pete
+        d.find_by_id_send_keys('loginForm:credentialsContainer2:1:sCredValue', auth[1]) # pete     
         d.find_by_id_click('loginForm:login')
         d.sleep(2)
         
-        #msg('Add new dataset')
-        d.find_link_in_soup_and_click('New Dataset')
+        page_source = d.get_page_source()
+        msg('Check if source exists')
+        assert(page_source is not None, True)
         
-        #d.goto_link("/dataset.xhtml?id=245")
+        msg('Check if Pete is logged in')
+        expected_val = '<a value="#" class="dropdown-toggle" data-toggle="dropdown">Pete Privileged'
+        has_expected_val = page_source.find(expected_val)
+        assert(has_expected_val > -1, True)
+        
+        return
+        #http://localhost:8080/dataset.xhtml?id=61&versionId=4
+        #d.goto_link("/dataset.xhtml?id=61&versionId=4")
+        #return
         d.sleep(2)
         
+        msg('Add new dataset')
+        d.find_link_in_soup_and_click('New Dataset')
         # try to add title
         # find <a rel="title" class="pre-input-tag"></a>
         prefix = 'pre-input-'
@@ -53,8 +64,9 @@ class CreateDatasetTester:
         """
 
 if __name__=='__main__':
-    dataverse_url = "http://localhost:8080"
-    #dataverse_url = 'http://dvn-build.hmdc.harvard.edu/'
-    auth = ('pete', 'pete')
-    ut = CreateDatasetTester(dataverse_url, auth, None)
-    ut.login()
+    #dataverse_url = "http://localhost:8080"
+    dataverse_url = 'http://dvn-build.hmdc.harvard.edu/'
+    #dataverse_url = 'http://dvn-alpha.hmdc.harvard.edu/'
+    auth = ('pete', 'petez')
+    tester = CreateDatasetTester(dataverse_url, auth, None)
+    tester.login()

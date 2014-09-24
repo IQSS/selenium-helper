@@ -13,6 +13,12 @@ class SeleniumHelper:
         if self.driver:
             self.driver.quit()
     
+    def get_page_source(self):
+        if not self.driver:
+            return None
+        
+        return self.driver.page_source
+        
     def get_dataverse_name_dict(self):
         
         soup = BeautifulSoup(self.driver.page_source)
