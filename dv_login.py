@@ -33,7 +33,7 @@ class CreateDatasetTester:
         msg('Check if Pete is logged in')
         expected_val = '<a value="#" class="dropdown-toggle" data-toggle="dropdown">Pete Privileged'
         has_expected_val = page_source.find(expected_val)
-        assert(has_expected_val > -1, True)
+        assert has_expected_val > -1, "has_expected_val must be greater than 1"
         
         return
         #http://localhost:8080/dataset.xhtml?id=61&versionId=4
@@ -65,8 +65,8 @@ class CreateDatasetTester:
 
 if __name__=='__main__':
     #dataverse_url = "http://localhost:8080"
-    dataverse_url = 'http://dvn-build.hmdc.harvard.edu/'
+    dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
     #dataverse_url = 'http://dvn-alpha.hmdc.harvard.edu/'
-    auth = ('pete', 'petez')
+    auth = ('pete', 'pete')
     tester = CreateDatasetTester(dataverse_url, auth, None)
     tester.login()

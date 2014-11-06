@@ -67,7 +67,7 @@ class SeleniumHelper:
         self.driver.execute_script('document.location="%s";return true;' % lnk)
         
     def sleep(self, seconds):
-        msgt('sleep for %s second(s)' % seconds)
+        msg('\n...sleep for %s second(s)...' % seconds)
         time.sleep(seconds)
         
     def get(self, lnk):
@@ -97,3 +97,19 @@ class SeleniumHelper:
         if e: 
             e.clear()
             e.send_keys(keys_val)
+    
+    
+    def get_dvobject_links(self):
+        soup = BeautifulSoup(self.driver.page_source)
+        
+        valid_links = []
+        for lnk in soup.findAll('a', href=True):
+            href_str = lnk['href']
+            if href_str.find('dataset.xhtml') > -1:
+                valid_links.append(href_str)
+            elif href_str.find('view-dataverse/') > -1:
+                valid_links.append(href_str)
+            elif href_str.find('dataset.xhtml') > -1 and href_str.find('&versionId') > -1:
+                valid_links.append(href_str)
+        #msgt(valid_links)
+        return valid_links

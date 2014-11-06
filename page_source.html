@@ -1,0 +1,678 @@
+<!--?xml version='1.0' encoding='UTF-8' ?-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><link href="/javax.faces.resource/theme.css.xhtml?ln=primefaces-bootstrap" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/css/bootstrap.css.xhtml?ln=bs" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/css/bootstrap-theme.min.css.xhtml?ln=bs" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/ie-compat.css.xhtml?ln=css" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/componentStyles.css.xhtml?ln=css" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/owl.carousel.css.xhtml?ln=css" rel="stylesheet" type="text/css" /><link href="/javax.faces.resource/main.css.xhtml?ln=css" rel="stylesheet" type="text/css" /><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script><script src="/javax.faces.resource/primefaces.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script><link href="/javax.faces.resource/primefaces.css.xhtml?ln=primefaces&amp;v=4.0" rel="stylesheet" type="text/css" /><script src="/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script><link href="/javax.faces.resource/watermark/watermark.css.xhtml?ln=primefaces&amp;v=4.0" rel="stylesheet" type="text/css" /><script src="/javax.faces.resource/watermark/watermark.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script><link href="/javax.faces.resource/fileupload/fileupload.css.xhtml?ln=primefaces&amp;v=4.0" rel="stylesheet" type="text/css" /><script src="/javax.faces.resource/fileupload/fileupload.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script><link href="/javax.faces.resource/colorpicker/colorpicker.css.xhtml?ln=primefaces&amp;v=4.0" rel="stylesheet" type="text/css" /><script src="/javax.faces.resource/colorpicker/colorpicker.js.xhtml?ln=primefaces&amp;v=4.0" type="text/javascript"></script>
+        <title>My Halloween Dataverse</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <meta content="en" http-equiv="Content-Language" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link href="/resources/images/favicondataverse.png" rel="icon" type="image/png" />
+        <link href="/resources/css/structure.css" rel="stylesheet" type="text/css" /></head><body>
+        <a class="sr-only" href="#content">Skip to main content</a><div style="margin-top:50px;" xmlns="http://www.w3.org/1999/xhtml">
+
+    <!-- Navbar Panel -->
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top" id="navbarFixed">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target="#topNavBar" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button><a href="/"><span class="navbar-brand">Dataverse</span></a><a target="_blank" title="Visit the Dataverse Users Community Group to learn more about the Dataverse 4.0 Beta release." href="https://groups.google.com/forum/#%21forum/dataverse-community">
+                    <span class="label label-default beta">Beta</span></a>
+            </div>
+            <div id="topNavBar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="navbar-search-toggle" value="#">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                    </li>
+                    <form style="display:none;" role="search" class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <label for="navbarsearch" class="sr-only">Search</label>
+                            <input type="text" style="font-size:1em;margin-right:1em;" placeholder="Search all Dataverses..." size="28" class="form-control ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" id="navbarsearch" />
+                        </div>
+                        <button onclick="window.location = '/?q=' + document.getElementById('navbarsearch').value;                                 return false;" class="btn btn-default" type="submit">
+                            <span style="margin-right:.3em;" class="glyphicon glyphicon-search"></span> Find
+                        </button>
+                    </form>
+                    <li><a target="_blank" href="http://datascience.iq.harvard.edu/blog/dataverse-40-beta">
+                            About
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" value="#">
+                            Support <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="http://datascience.iq.harvard.edu/dataverse/support">Community &amp; Support</a>
+                            </li>
+                            <li><a target="_blank" href="/guides/index.html">
+                                    User Guides
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a onclick="feedbackForm.show();PrimeFaces.ab({source:'j_idt54'});return false;" class="ui-commandlink ui-widget" href="#" id="j_idt54">Feedback</a>
+                    </li>
+                        <li class="dropdown accountName">
+                            <a data-toggle="dropdown" class="dropdown-toggle" value="#">Raman Prasad<span class="label label-danger">2</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/dataverseuser.xhtml?selectTab=notifications">Notifications<span class="label label-danger">2</span></a>
+                                </li>
+                                <li><a href="/dataverseuser.xhtml">Data Related to Me</a>
+                                </li>
+                                <li><a href="/dataverseuser.xhtml?selectTab=groupsRoles">Groups + Roles</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="logout">
+<form role="logout" enctype="application/x-www-form-urlencoded" class="navbar-form navbar-left" action="/" method="post" name="j_idt81" id="j_idt81">
+<input type="hidden" value="j_idt81" name="j_idt81" />
+
+<script src="/javax.faces.resource/jsf.js.xhtml?ln=javax.faces" type="text/javascript"></script>
+<a onclick="mojarra.jsfcljs(document.getElementById('j_idt81'),{'j_idt81:j_idt82':'j_idt81:j_idt82'},'');return false" href="#">Log Out</a><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form>
+                                </li>
+                            </ul>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Panel -->
+        <div style="background:#9de3a6;" class="container" id="dataverseHeader">
+                <div style="text-align:RIGHT;; background:#8cd986;" class="dataverseHeaderLogo">
+                    <img alt="logo" style="max-width:900px;max-height:120px" src="/logos/1/Costa%20Rican%20Frog.jpg" />
+                </div>
+            <div class="dataverseHeaderBlock">
+                    <div class="dataverseHeaderCell dataverseHeaderName">
+                        <a style="font-size: 1.3em; color:#204a05;" href="/dataverse.xhtml?id=1">My Halloween Dataverse</a>
+                    </div>
+                    <div class="dataverseHeaderCell dataverseHeaderTagline"><span style="color:#0a020a;">My tagline</span>
+                    </div>
+            </div>
+        </div>
+
+    <!-- Breadcrumbs Panel -->
+        <div class="container" id="breadcrumbNavBlock">
+            <!-- Dataverses -->
+                <div class="breadcrumbBlock">
+                    <div><span class="breadcrumbActive">My Halloween Dataverse</span>
+                    </div>
+
+                    
+                </div>
+
+            <!-- Dataset, if available -->
+        </div>
+
+    <!-- Message Panel -->
+        <div class="container messagePanel">
+        </div>
+    
+    <!-- Dialog Feedback Form --><div class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow ui-draggable ui-resizable" id="j_idt141" style="width: auto; height: auto;" role="dialog" aria-labelledby="j_idt141_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title" id="j_idt141_title">Send feedback to the Dataverse development team!</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;">
+<form enctype="application/x-www-form-urlencoded" class="form-horizontal" action="/" method="post" name="j_idt142" id="j_idt142">
+<input type="hidden" value="j_idt142" name="j_idt142" />
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="messageTo">To</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" id="messageTo">Dataverse Support</p>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="userEmailStatic">From</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" id="userEmailStatic">raman_prasad@harvard.edu</p>
+                    </div>
+                </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="messageSubject">Subject</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" id="messageSubject">Dataverse 4.0 Beta build 643 Feedback</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="userMessage">Message</label>
+                <div class="col-sm-10"><textarea rows="10" class="form-control" name="j_idt142:userMessage" id="j_idt142:userMessage"></textarea>
+                </div>
+            </div><input type="submit" class="btn btn-success" value="Send Message" name="j_idt142:j_idt151" />
+            <button value="Cancel" onclick="feedbackForm.hide()" class="btn btn-default" type="button">Cancel</button><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div></div>
+</div>
+        <div id="content" class="container">
+<form enctype="application/x-www-form-urlencoded" action="/" method="post" name="dataverseForm" id="dataverseForm">
+<input type="hidden" value="dataverseForm" name="dataverseForm" />
+<span id="dataverseForm:j_idt155"></span><script type="text/javascript">$(function(){PrimeFaces.focus(null, 'dataverseForm');});</script>
+
+                    <!-- Name Panel -->
+
+                    <!-- Edit Info Panel -->
+
+                    <!-- Description Panel / View Mode -->
+
+                        <div style="margin-bottom:1em;" class="clearfix" id="actionButtonBlock">
+                            <!-- Edit Button -->
+                            <!-- Release Button -->
+                                <div style="float:right;">
+                                    <button onclick="contact_confirmation.show()" class="btn btn-default" type="button">
+                                        <span style="margin-right:.3em;" class="glyphicon glyphicon-envelope"></span> Email Dataverse Contact
+                                    </button>
+                                </div><div class="ui-confirm-dialog ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow" id="dataverseForm:j_idt264" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:j_idt264_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title">Email Dataverse Contact</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"><span class="ui-icon ui-icon-alert ui-confirm-dialog-severity"></span><span class="ui-confirm-dialog-message">Dataverse 4.0 Beta cannot email dataverse contacts. Look for this feature in Dataverse 4.0!</span></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"></div></div>
+                        </div>
+                                <div style="margin-bottom:1em;" id="dataverseDesc">The root dataverse.
+                                </div>
+                                <div style="border-bottom:1px solid #ddd; margin-bottom:1em;" id="carouselBlocksWrapper">
+                                        <div style="overflow: hidden; padding-top:.5em; border-top:1px solid #ddd;" id="featuredDataversesBlock">
+                                            <div class="clearfix"><strong>Featured Dataverses</strong></div>
+                                            <div style="width:4%;float:left;padding:28px 0;" class="customNavigation">
+                                                <a title="Previous" class="btn prev1" style="display: none;"><span style="color:#999999;font-size:2em;" class="glyphicon glyphicon-chevron-left"></span></a>
+                                            </div>
+                                            <div style="width: 90%; float: left; opacity: 1; display: block;" class="owl-carousel owl-theme" id="featuredDataversesList">
+                                                    <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 1296px; left: 0px; display: block;"><div class="owl-item" style="width: 216px;"><div style="min-height:80px;" class="item">
+                                                            <a style="display:block;" title="My Halloween Dataverse" href="/dataverse.xhtml?id=92">
+                                                                <img alt="My Halloween Dataverse" style="max-width:210px;max-height:60px;" src="/logos/1/Costa%20Rican%20Frog.jpg" />
+                                                            </a>
+                                                        <a style="display:block;" title="My Halloween Dataverse" href="/dataverse.xhtml?id=92">My Halloween Dataverse
+                                                        </a>
+                                                    </div></div><div class="owl-item" style="width: 216px;"><div style="min-height:80px;" class="item">
+                                                            <a style="display:block;" title="Test GSD Block Dataverse" href="/dataverse.xhtml?id=56">
+                                                                <img alt="Test GSD Block Dataverse" style="max-width:210px;max-height:60px;" src="/logos/1/Costa%20Rican%20Frog.jpg" />
+                                                            </a>
+                                                        <a style="display:block;" title="Test GSD Block Dataverse" href="/dataverse.xhtml?id=56">Test GSD Block Dataverse
+                                                        </a>
+                                                    </div></div><div class="owl-item" style="width: 216px;"><div style="min-height:80px;" class="item">
+                                                            <a style="display:block;" title="Test Alias Dataverse" href="/dataverse.xhtml?id=261">
+                                                                <img alt="Test Alias Dataverse" style="max-width:210px;max-height:60px;" src="/logos/1/Costa%20Rican%20Frog.jpg" />
+                                                            </a>
+                                                        <a style="display:block;" title="Test Alias Dataverse" href="/dataverse.xhtml?id=261">Test Alias Dataverse
+                                                        </a>
+                                                    </div></div></div></div>
+                                                    
+                                                    
+                                            </div>
+                                            <div style="width:4%;float:left;padding:28px 0;" class="customNavigation">
+                                                <a title="Next" class="btn next1" style="display: none;"><span style="color:#999999;font-size:2em;" class="glyphicon glyphicon-chevron-right"></span></a>
+                                            </div>
+                                        </div>
+                                </div>
+
+
+                    <!-- Featured Dataverses Popup --><div class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow ui-draggable ui-resizable" id="dataverseForm:j_idt291" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:j_idt291_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title" id="dataverseForm:j_idt291_title">Featured Dataverses</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;">
+                        <!--&lt;div class=&quot;form-group&quot;&gt;
+                            &lt;p:selectBooleanCheckbox value=&quot;    #    {DataversePage.dataverse.displayByType}&quot;
+                                                 itemLabel=&quot;Display 'Dataverse by Category' Carousel on Front Page&quot;/&gt;
+                        &lt;/div&gt;-->
+                        <div class="form-group"><div class="ui-chkbox ui-widget" id="dataverseForm:j_idt293"><div class="ui-helper-hidden-accessible"><input type="checkbox" checked="checked" name="dataverseForm:j_idt293_input" id="dataverseForm:j_idt293_input" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active"><span class="ui-chkbox-icon ui-c ui-chkbox-icon ui-icon ui-icon-check ui-c"></span></div><span class="ui-chkbox-label">Display "Featured Dataverses" Carousel on Front Page</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Featured Dataverses</label>
+                            <p class="help-block">Select dataverses to feature on the homepage of this dataverse.</p><table class="ui-picklist ui-widget" id="dataverseForm:featuredDataverseList"><tbody><tr><td><div class="ui-picklist-filter-container"><input type="text" class="ui-picklist-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" name="dataverseForm:featuredDataverseList_source_filter" id="dataverseForm:featuredDataverseList_source_filter" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false" /><span class="ui-icon ui-icon-search"></span></div><ul class="ui-widget-content ui-picklist-list ui-picklist-source ui-corner-all ui-sortable"><li data-item-label="123testing" data-item-value="461" class="ui-picklist-item ui-corner-all">123testing</li><li data-item-label="DISCO" data-item-value="662" class="ui-picklist-item ui-corner-all">DISCO</li><li data-item-label="dkhjfdkjfhg" data-item-value="531" class="ui-picklist-item ui-corner-all">dkhjfdkjfhg</li><li data-item-label="GPD" data-item-value="410" class="ui-picklist-item ui-corner-all">GPD</li><li data-item-label="kc1103" data-item-value="328" class="ui-picklist-item ui-corner-all">kc1103</li><li data-item-label="Merce" data-item-value="320" class="ui-picklist-item ui-corner-all">Merce</li><li data-item-label="net" data-item-value="247" class="ui-picklist-item ui-corner-all">net</li><li data-item-label="PBCM" data-item-value="107" class="ui-picklist-item ui-corner-all">PBCM</li><li data-item-label="prettyfaces" data-item-value="401" class="ui-picklist-item ui-corner-all">prettyfaces</li><li data-item-label="Pumpkin" data-item-value="319" class="ui-picklist-item ui-corner-all">Pumpkin</li><li data-item-label="sword" data-item-value="26" class="ui-picklist-item ui-corner-all">sword</li><li data-item-label="test" data-item-value="49" class="ui-picklist-item ui-corner-all">test</li><li data-item-label="test gsd" data-item-value="349" class="ui-picklist-item ui-corner-all">test gsd</li><li data-item-label="testing" data-item-value="73" class="ui-picklist-item ui-corner-all">testing</li><li data-item-label="test of hope" data-item-value="246" class="ui-picklist-item ui-corner-all">test of hope</li><li data-item-label="testooooo" data-item-value="402" class="ui-picklist-item ui-corner-all">testooooo</li><li data-item-label="test something" data-item-value="352" class="ui-picklist-item ui-corner-all">test something</li><li data-item-label="testVersioning" data-item-value="110" class="ui-picklist-item ui-corner-all">testVersioning</li><li data-item-label="The Best" data-item-value="422" class="ui-picklist-item ui-corner-all">The Best</li><li data-item-label="Top dataverse of Pete" data-item-value="2" class="ui-picklist-item ui-corner-all">Top dataverse of Pete</li><li data-item-label="Top dataverse of Uma" data-item-value="6" class="ui-picklist-item ui-corner-all">Top dataverse of Uma</li></ul><select class="ui-helper-hidden" multiple="true" name="dataverseForm:featuredDataverseList_source" id="dataverseForm:featuredDataverseList_source"><option selected="selected" value="461">123testing</option><option selected="selected" value="662">DISCO</option><option selected="selected" value="531">dkhjfdkjfhg</option><option selected="selected" value="410">GPD</option><option selected="selected" value="328">kc1103</option><option selected="selected" value="320">Merce</option><option selected="selected" value="247">net</option><option selected="selected" value="107">PBCM</option><option selected="selected" value="401">prettyfaces</option><option selected="selected" value="319">Pumpkin</option><option selected="selected" value="26">sword</option><option selected="selected" value="49">test</option><option selected="selected" value="349">test gsd</option><option selected="selected" value="73">testing</option><option selected="selected" value="246">test of hope</option><option selected="selected" value="402">testooooo</option><option selected="selected" value="352">test something</option><option selected="selected" value="110">testVersioning</option><option selected="selected" value="422">The Best</option><option selected="selected" value="2">Top dataverse of Pete</option><option selected="selected" value="6">Top dataverse of Uma</option></select></td><td><button title="Add" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-picklist-button-add" type="button" role="button" aria-disabled="false"><span class="ui-button-icon-left ui-icon ui-c ui-icon ui-icon-arrow-1-e"></span><span class="ui-button-text ui-c">ui-button</span></button><button title="Add All" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-picklist-button-add-all" type="button" role="button" aria-disabled="false"><span class="ui-button-icon-left ui-icon ui-c ui-icon ui-icon-arrowstop-1-e"></span><span class="ui-button-text ui-c">ui-button</span></button><button title="Remove" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-picklist-button-remove" type="button" role="button" aria-disabled="false"><span class="ui-button-icon-left ui-icon ui-c ui-icon ui-icon-arrow-1-w"></span><span class="ui-button-text ui-c">ui-button</span></button><button title="Remove All" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-picklist-button-remove-all" type="button" role="button" aria-disabled="false"><span class="ui-button-icon-left ui-icon ui-c ui-icon ui-icon-arrowstop-1-w"></span><span class="ui-button-text ui-c">ui-button</span></button></td><td><div class="ui-picklist-filter-container"><input type="text" class="ui-picklist-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" name="dataverseForm:featuredDataverseList_target_filter" id="dataverseForm:featuredDataverseList_target_filter" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false" /><span class="ui-icon ui-icon-search"></span></div><ul class="ui-widget-content ui-picklist-list ui-picklist-target ui-corner-all ui-sortable"><li data-item-label="My Halloween" data-item-value="92" class="ui-picklist-item ui-corner-all">My Halloween</li><li data-item-label="Test GSD Block" data-item-value="56" class="ui-picklist-item ui-corner-all">Test GSD Block</li><li data-item-label="Test Alias" data-item-value="261" class="ui-picklist-item ui-corner-all">Test Alias</li></ul><select class="ui-helper-hidden" multiple="true" name="dataverseForm:featuredDataverseList_target" id="dataverseForm:featuredDataverseList_target"><option selected="selected" value="92">My Halloween</option><option selected="selected" value="56">Test GSD Block</option><option selected="selected" value="261">Test Alias</option></select></td></tr></tbody></table>
+                        </div><input type="submit" class="btn btn-success" value="Save Changes" name="dataverseForm:j_idt296" />
+                        <button value="Cancel" onclick="browseOptsForm.hide()" class="btn btn-default" type="button">Cancel</button></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div></div><div>
+    <!-- Theme and Widgets Popup --><div class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow largePopUp ui-draggable ui-resizable" id="dataverseForm:themeAndWidgetsDlg" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:themeAndWidgetsDlg_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title" id="dataverseForm:themeAndWidgetsDlg_title">Theme + Widgets</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div></div>
+    <script type="text/javascript">
+        // &lt;![CDATA[
+        function saveThemeHandleComplete(xhr, status, args) {
+            // We only want to close the CreateSet pop-up
+            // if there
+            // are no validation or creation errors
+            // alert("xhr="+xhr.responseText);
+            if (xhr.responseText.search('class="error"') === -1 &amp;&amp; args.validationFailed === undefined) {
+                PF('themeAndWidgetsForm').hide();
+                 window.location.reload();
+            } else {
+                // alert(" contains class error = "+ xhr.responseText.search('class="error"')!==-1);
+            }
+        } // ]]&gt;
+    </script>
+</div><div>
+    <!-- Roles + Permissions Popup --><div class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow largePopUp ui-draggable ui-resizable" id="dataverseForm:rolesPermissionsDialog" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:rolesPermissionsDialog_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title" id="dataverseForm:rolesPermissionsDialog_title">Roles + Permissions</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div></div>
+
+
+</div>
+
+                    <!-- Publish Confirmation Popup --><div class="ui-confirm-dialog ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow" id="dataverseForm:j_idt424" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:j_idt424_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title">Publish Dataverse</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"><span class="ui-icon ui-icon-alert ui-confirm-dialog-severity"></span><span class="ui-confirm-dialog-message">Are you sure you want to publish your dataverse? Once you do so it must remain 'Published'.</span></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><button type="submit" onclick="confirmation.hide();PrimeFaces.ab({source:'dataverseForm:j_idt425'});return false;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" name="dataverseForm:j_idt425" id="dataverseForm:j_idt425" role="button" aria-disabled="false"><span class="ui-button-text ui-c">Continue</span></button><button type="button" onclick="confirmation.hide();;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" name="dataverseForm:j_idt426" id="dataverseForm:j_idt426" role="button" aria-disabled="false"><span class="ui-button-text ui-c">Cancel</span></button></div></div><div class="ui-confirm-dialog ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow" id="dataverseForm:j_idt427" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:j_idt427_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title">May not publish</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"><span class="ui-icon ui-icon-alert ui-confirm-dialog-severity"></span><span class="ui-confirm-dialog-message">This dataverse may not be published because its host dataverse has not been published.</span></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"></div></div><div class="ui-confirm-dialog ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow" id="dataverseForm:j_idt428" style="width: auto; height: auto;" role="dialog" aria-labelledby="dataverseForm:j_idt428_title" aria-hidden="true"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span class="ui-dialog-title">Delete Dataverse</span><a class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" href="#" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" style="height: auto;"><span class="ui-icon ui-icon-alert ui-confirm-dialog-severity"></span><span class="ui-confirm-dialog-message">Are you sure you want to delete your dataverse? This action may not be 'Undone'.</span></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><button type="submit" onclick="deleteConfirmation.hide();PrimeFaces.ab({source:'dataverseForm:j_idt429'});return false;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" name="dataverseForm:j_idt429" id="dataverseForm:j_idt429" role="button" aria-disabled="false"><span class="ui-button-text ui-c">Continue</span></button><button type="button" onclick="deleteConfirmation.hide();;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" name="dataverseForm:j_idt430" id="dataverseForm:j_idt430" role="button" aria-disabled="false"><span class="ui-button-text ui-c">Cancel</span></button></div></div>
+
+                    <!-- Dataverse Theme Panel -->
+
+                    <!-- Save / Cancel Button Panel --><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form>
+
+                <!-- Content Panel --><div xmlns="http://www.w3.org/1999/xhtml">
+
+    <!-- Search Form --><div data-widget="widget_j_idt462" class="ui-panel ui-widget ui-widget-content ui-corner-all panelLayoutBlock panelSerchForm" id="j_idt462"><div class="ui-panel-content ui-widget-content" id="j_idt462_content"><table role="grid" class="ui-panelgrid ui-widget panelgridLayoutTable" id="j_idt463"><tbody><tr role="row" class="ui-widget-content"><td class="text-left" role="gridcell">
+<form enctype="application/x-www-form-urlencoded" action="/" method="post" name="j_idt465" id="j_idt465">
+<input type="hidden" value="j_idt465" name="j_idt465" />
+<span id="j_idt465:j_idt466"></span><script type="text/javascript">$(function(){PrimeFaces.focus();});</script>
+                    <!--autocomplete disabled for now, too buggy: https://redmine.hmdc.harvard.edu/issues/3447#note-2 -->
+                    <!--&lt;p:autoComplete id=&quot;autoCompleteSearch&quot; size=&quot;40&quot; value=&quot;SearchIncludeFragment.query&quot; completeMethod=&quot;autoCompleteBean.complete&quot; style=&quot;margin-right:1em;&quot;/&gt;--><input type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" onkeypress="if (event.keyCode == 13) { submitsearch(); return false; }" size="40" name="j_idt465:formerAutoCompleteSearch" id="j_idt465:formerAutoCompleteSearch" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false" placeholder="Search this Dataverse..." /><a onclick="PrimeFaces.ab({source:'j_idt465:searchbutton'});return false;" class="ui-commandlink ui-widget btn btn-default" href="#" id="j_idt465:searchbutton">
+                        <span class="glyphicon glyphicon-search"></span> Find
+                    </a><script type="text/javascript">submitsearch = function() {PrimeFaces.ab({source:'j_idt465:j_idt470',formId:'j_idt465',params:arguments[0]});}</script><a target="_self" href="/search/advanced" name="j_idt465:advsearchlink" id="j_idt465:advsearchlink">Advanced Search
+                        <!--&lt;f:param name=&quot;q&quot; value=&quot;&quot; disable=&quot;true&quot;/&gt;--></a><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form></td><td class="text-right" role="gridcell">
+<form enctype="application/x-www-form-urlencoded" action="/" method="post" name="shareForm" id="shareForm">
+<input type="hidden" value="shareForm" name="shareForm" />
+
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                            <span class="glyphicon glyphicon-plus"></span> Add Data <span class="caret"></span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu pull-right text-left">
+                                <li><a href="/dataverse.xhtml?ownerId=1">New Dataverse</a></li>
+                                <li><a href="/dataset.xhtml?ownerId=1">New Dataset</a></li>
+                            <!--&lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;pointer-events: none; color: grey;&quot;&gt;Existing Dataverse&lt;/a&gt;&lt;/li&gt;-->
+                            <!--&lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;pointer-events: none; color: grey;&quot;&gt;Existing Dataset&lt;/a&gt;&lt;/li&gt;-->
+                        </ul>
+                    </div><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form></td></tr></tbody></table></div></div>
+    <!-- Search Results -->
+    <div class="panel panel-default">
+        <div class="panel-body clearfix">
+                    <div id="dv-sidecolumn">
+                        <!--TYPE FACET (DATAVERSES, DATASETS, FILES)-->
+<form enctype="application/x-www-form-urlencoded" action="/" method="post" name="facetType" id="facetType">
+<input type="hidden" value="facetType" name="facetType" />
+
+                            <!--DATAVERSE TOGGLE-->
+                            <div class="clearfix"><a class="facetTypeChBox facetLink facetSelected" href="?id=&amp;q=&amp;types=datasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><div class="ui-chkbox ui-widget" id="facetType:j_idt496"><div class="ui-helper-hidden-accessible"><input type="checkbox" checked="checked" name="facetType:j_idt496_input" id="facetType:j_idt496_input" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active"><span class="ui-chkbox-icon ui-c ui-chkbox-icon ui-icon ui-icon-check ui-c"></span></div></div></a>
+                                <!--DATAVERSES ONLY--><a class="facetTypeLink facetSelected" href="?id=&amp;q=&amp;types=dataverses&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><span class="facetTypeDataverse">Dataverses (27)</span></a>
+                            </div>
+                            <!--DATASETS TOGGLE-->
+                            <div class="clearfix"><a class="facetTypeChBox facetLink facetSelected" href="?id=&amp;q=&amp;types=dataverses&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><div class="ui-chkbox ui-widget" id="facetType:j_idt514"><div class="ui-helper-hidden-accessible"><input type="checkbox" checked="checked" name="facetType:j_idt514_input" id="facetType:j_idt514_input" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active"><span class="ui-chkbox-icon ui-c ui-chkbox-icon ui-icon ui-icon-check ui-c"></span></div></div></a>
+                                <!--DATASETS ONLY--><a class="facetTypeLink facetSelected" href="?id=&amp;q=&amp;types=datasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><span class="facetTypeDataset">Datasets (18)</span></a>
+                            </div>
+                            <!--FILES TOGGLE-->
+                            <div class="clearfix"><a class="facetTypeChBox facetLink " href="?id=&amp;q=&amp;types=dataverses%3Adatasets%3Afiles&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><div class="ui-chkbox ui-widget" id="facetType:j_idt532"><div class="ui-helper-hidden-accessible"><input type="checkbox" name="facetType:j_idt532_input" id="facetType:j_idt532_input" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-c"></span></div></div></a>
+                                <!--FILES ONLY--><a class="facetTypeLink " href="?id=&amp;q=&amp;types=files&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1"><span class="facetTypeFile">Files (154)</span></a>
+                            </div><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form>
+                        
+                        <!--NON-TYPE FACETS-->
+<form style="margini-top:.5em;" enctype="application/x-www-form-urlencoded" action="/" method="post" name="j_idt545" id="j_idt545">
+<input type="hidden" value="j_idt545" name="j_idt545" />
+<div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList_list"><li class="ui-datalist-item"><span class="facetCategoryName">Affiliation</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:0:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:0:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:0:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=affiliation_ss%3A%22Top%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Top (9)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=affiliation_ss%3A%22Affiliation+value%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Affiliation value (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=affiliation_ss%3A%22Disco%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Disco (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=affiliation_ss%3A%22IQSS%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">IQSS (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=affiliation_ss%3A%22cartoon%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">cartoon (1)</a></li></ul></div></div><table role="grid" class="ui-panelgrid ui-widget facetsMoreLess" id="j_idt545:facetCategoryList:0:j_idt565"><tbody><tr role="row" class="ui-widget-content"><td role="gridcell"></td><td role="gridcell"><a onclick="PrimeFaces.ab({source:'j_idt545:facetCategoryList:0:j_idt570',update:'j_idt545:facetCategoryList'});return false;" class="ui-commandlink ui-widget" href="#" id="j_idt545:facetCategoryList:0:j_idt570">More...</a></td></tr></tbody></table></li><li class="ui-datalist-item"><span class="facetCategoryName">Publication Date</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:1:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:1:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:1:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=publication_date_s%3A%222014%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">2014 (45)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Author Name</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:2:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:2:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:2:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorName_ss%3A%22Privileged%2C+Pete%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Privileged, Pete (9)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorName_ss%3A%22tester%2C+kc1031%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">tester, kc1031 (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorName_ss%3A%22pete%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">pete (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorName_ss%3A%22sotiri%2C+elda+%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">sotiri, elda  (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorName_ss%3A%22tester%2C+kc112c%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">tester, kc112c (1)</a></li></ul></div></div><table role="grid" class="ui-panelgrid ui-widget facetsMoreLess" id="j_idt545:facetCategoryList:2:j_idt565"><tbody><tr role="row" class="ui-widget-content"><td role="gridcell"></td><td role="gridcell"><a onclick="PrimeFaces.ab({source:'j_idt545:facetCategoryList:2:j_idt570',update:'j_idt545:facetCategoryList'});return false;" class="ui-commandlink ui-widget" href="#" id="j_idt545:facetCategoryList:2:j_idt570">More...</a></td></tr></tbody></table></li><li class="ui-datalist-item"><span class="facetCategoryName">Author Affiliation</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:3:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:3:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:3:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=authorAffiliation_ss%3A%22Top%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Top (9)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Subject</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:4:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:4:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:4:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=subject_ss%3A%22Arts+and+Humanities%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Arts and Humanities (13)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=subject_ss%3A%22Business+and+Management%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Business and Management (2)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=subject_ss%3A%22Astronomy+and+Astrophysics%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Astronomy and Astrophysics (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=subject_ss%3A%22Chemistry%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Chemistry (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=subject_ss%3A%22Medicine%2C+Health+%26+Life+Sciences%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Medicine, Health &amp; Life Sciences (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Deposit Date</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:5:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:5:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:5:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=dateOfDeposit_s%3A%222014%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">2014 (18)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Student's Program of Study</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:6:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:6:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:6:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdStudentProgram_ss%3A%22DDes%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">DDes (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdStudentProgram_ss%3A%22MArch+II%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">MArch II (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdStudentProgram_ss%3A%22MUD%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">MUD (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdStudentProgram_ss%3A%22PhD%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">PhD (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Course Name</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:7:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:7:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:7:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdCourseName_s%3A%2201101%3A+First+Semester+Core%3A+PROJECT%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">01101: First Semester Core: PROJECT (4)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdCourseName_s%3A%2201201%3A+Third+Semester+Core%3A+INTEGRATE+%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">01201: Third Semester Core: INTEGRATE  (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdCourseName_s%3A%2201221%3A+Elements+of+Urban+Design+%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">01221: Elements of Urban Design  (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Faculty Name</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:8:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:8:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:8:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdFacultyName_ss%3A%22Abalos%2C+Inaki%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Abalos, Inaki (4)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdFacultyName_ss%3A%22Adjaye%2C+David%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Adjaye, David (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdFacultyName_ss%3A%22Beard%2C+Peter%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Beard, Peter (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdFacultyName_ss%3A%22Brenner%2C+Neil%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Brenner, Neil (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdFacultyName_ss%3A%22Cook%2C+Peter%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Cook, Peter (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Semester / Year</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:9:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:9:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:9:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSemester_s%3A%22Fall+2013%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Fall 2013 (4)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSemester_s%3A%22Fall+2015%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Fall 2015 (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSemester_s%3A%22Spring+2015%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Spring 2015 (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Site Type</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:10:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:10:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:10:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSiteType_ss%3A%221%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">1 (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSiteType_ss%3A%22GSDSiteType1%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">GSDSiteType1 (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdSiteType_ss%3A%22GSDSiteType2%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">GSDSiteType2 (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Program Brief</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:11:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:11:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:11:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdProgramBrief_ss%3A%221%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">1 (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdProgramBrief_ss%3A%22ProgramBrief1%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">ProgramBrief1 (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdProgramBrief_ss%3A%22ProgramBrief2%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">ProgramBrief2 (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">Types of Representation/ Medium/ Format</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:12:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:12:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:12:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdTypes_ss%3A%22Animations%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">Animations (1)</a></li></ul></div></div></li><li class="ui-datalist-item"><span class="facetCategoryName">GSD Tags</span><div class="ui-datalist ui-widget" id="j_idt545:facetCategoryList:13:j_idt547"><div class="ui-datalist-content ui-widget-content" id="j_idt545:facetCategoryList:13:j_idt547_content"><ul class="ui-datalist-data" id="j_idt545:facetCategoryList:13:j_idt547_list"><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdTags_ss%3A%221%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">1 (5)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdTags_ss%3A%22GSDTags1%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">GSDTags1 (1)</a></li><li class="ui-datalist-item"><a class="facetLink" href="?id=&amp;q=&amp;fq0=gsdTags_ss%3A%22GSDTags2%22&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc">GSDTags2 (1)</a></li></ul></div></div></li></ul></div></div><input type="hidden" autocomplete="off" value="183512499617207762:5280821058445506823" id="j_id1:javax.faces.ViewState:0" name="javax.faces.ViewState" />
+</form>
+                    </div>
+                <div class="showfacets" id="dv-maincolumn">
+                    <!--DEBUG BEGIN-->
+                    <!--DEBUG END-->
+                            <div class="clearfix" id="resultsCountPaginatorBlock">
+                                <!-- RESULTS COUNT -->
+                                <div class="results-count pull-left">1 to 10 of 45 results
+                                </div>
+                                <!-- SORT + PAGINATOR -->
+                                <div class="results-sort-pagination pull-right">
+                                    <!-- PAGINATOR -->
+                                        <div class="pagination pull-right">
+                                            <ul class="pagination">
+                                                <!--should take you to page 1-->
+                                                <li class="disabled"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">«</a>
+                                                </li>
+                                                <li class="disabled"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">&lt; Previous</a>
+                                                </li>
+                                                    <li class="active"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">1
+                                                            <span class="sr-only"> (current)
+                                                            </span></a>
+                                                    </li>
+                                                    <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=2">2
+                                                            <span>
+                                                            </span></a>
+                                                    </li>
+                                                    <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=3">3
+                                                            <span>
+                                                            </span></a>
+                                                    </li>
+                                                    <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=4">4
+                                                            <span>
+                                                            </span></a>
+                                                    </li>
+                                                    <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=5">5
+                                                            <span>
+                                                            </span></a>
+                                                    </li>
+                                                <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=2">Next &gt;</a>
+                                                </li>
+                                                <li><a href="?id=&amp;q=&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=5&amp;types=dataverses%3Adatasets">»</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- SORT BY -->
+                                    <div class="btn-group pull-right">
+                                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                            <span class="glyphicon glyphicon-sort"></span> Sort <span class="caret"></span>
+                                        </button>
+                                        <ul role="menu" class="dropdown-menu pull-right text-left">
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;page=1&amp;sort=name_sort&amp;order=asc"><span class="">Name (A-Z)</span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;page=1&amp;sort=name_sort&amp;order=desc"><span class="">Name (Z-A)</span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;page=1&amp;sort=release_or_create_date_dt&amp;order=desc"><span class="highlightBold">Newest</span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;page=1&amp;sort=release_or_create_date_dt&amp;order=asc"><span class="">Oldest</span></a>
+                                            </li>
+                                            <!--&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;ui-commandlink ui-widget&quot; style=&quot;pointer-events: none; color: grey;&quot;&gt;Release Date (#3628 #3629)&lt;/a&gt;&lt;/li&gt;-->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--CARDS--><div class="ui-datatable ui-widget " id="resultsTable"><div class="ui-datatable-tablewrapper"><table role="grid"><thead id="resultsTable_head"><tr role="row"><th role="columnheader" class="ui-state-default" id="resultsTable:j_idt771"><span></span></th></tr></thead><tfoot></tfoot><tbody class="ui-datatable-data ui-widget-content" id="resultsTable_data"><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="0"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/disco"><span style="padding:4px 0;">DISCO Dataverse</span></a><span style="color:#999999; margin-left: .5em;">(Disco)</span>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/disco">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/662?pfdrid_c=true" id="resultsTable:0:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 6, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DISCO DI...
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="1"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                <!--DATASET CARDS-->
+                                    <div><a target="_self" href="/dataset.xhtml?id=598&amp;versionId=69"><span style="padding:4px 0;">aaaaaaa</span></a>
+                                    </div>
+                                    <!--&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;-->
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;">
+                                        <!-- img src=&quot;/resources/images/icon_dataset.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataset&quot;/ --><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/dataset.xhtml?id=598&amp;versionId=69">
+                                            <!-- p:graphicImage value=&quot;/api/access/dsPreview/598&quot;/ --><img alt="" src="/api/access/dsPreview/69?pfdrid_c=true" id="resultsTable:1:j_idt833" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;"> Nov 5, 2014</span><a target="_self" href="/dataverse.xhtml?id=531">dkhjfdkjfhg Dataverse</a><span class="resultDatasetCitationBlock bg-info">two, test, 2014, "aaaaaaa", http://dx.doi.org/10.5072/FK2/598,  My Halloween Dataverse,  V1</span>aaaaaaa
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="2"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/dfgdfgdfg"><span style="padding:4px 0;">dkhjfdkjfhg Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/dfgdfgdfg">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/531?pfdrid_c=true" id="resultsTable:2:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 5, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                        <div style="clear:left;">
+                                            <a value="javascript:void(0)" href="#childDatasetBlock531" data-parent="#accordion" data-toggle="collapse">
+                                                Preview Recently Released Datasets [+]
+                                            </a>
+                                            <div id="childDatasetBlock531" class="panel-collapse collapse"><div class="ui-datatable ui-widget ui-datatable-scrollable" id="resultsTable:2:childDatasetTable"><div class="ui-widget-header ui-datatable-scrollable-header"><div class="ui-datatable-scrollable-header-box"><table role="grid"><thead id="resultsTable:2:childDatasetTable_head"><tr role="row"><th style="font-size: smaller; width: 90%" role="columnheader" class="ui-state-default" id="resultsTable:2:childDatasetTable:j_idt811"><span>Title</span></th><th style="font-size: smaller; width: 10%; text-align: right" role="columnheader" class="ui-state-default" id="resultsTable:2:childDatasetTable:j_idt815"><span>Files</span></th></tr></thead></table></div></div><div class="ui-datatable-scrollable-body"><table role="grid"><colgroup><col /><col /></colgroup><tbody class="ui-datatable-data ui-widget-content" id="resultsTable:2:childDatasetTable_data"><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="0"><td style="font-size: smaller; width: 90%" role="gridcell">
+                                                        <img border="0" alt="Dataset" style="width:18px;margin:0 4px 0 0;vertical-align:bottom;" src="/resources/images/icon_dataset.png" /><a target="_self" href="/dataset.xhtml?id=533">dfgdfgdf</a></td><td style="font-size: smaller; width: 10%; text-align: right" role="gridcell">63 Files</td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="1"><td style="font-size: smaller; width: 90%" role="gridcell">
+                                                        <img border="0" alt="Dataset" style="width:18px;margin:0 4px 0 0;vertical-align:bottom;" src="/resources/images/icon_dataset.png" /><a target="_self" href="/dataset.xhtml?id=598">aaaaaaa</a></td><td style="font-size: smaller; width: 10%; text-align: right" role="gridcell">63 Files</td></tr></tbody></table></div><div class="ui-widget-header ui-datatable-scrollable-footer"><div class="ui-datatable-scrollable-footer-box"><table role="grid"><tfoot></tfoot></table></div></div><div class="ui-datatable-footer ui-widget-header ui-corner-bottom"><a target="_self" style="font-weight:normal; font-size: smaller;" href="/dataverse.xhtml?id=531">View All Datasets and Dataverses &gt;</a></div><input type="hidden" value="0,0" autocomplete="off" name="resultsTable:2:childDatasetTable_scrollState" id="resultsTable:2:childDatasetTable_scrollState" /></div>
+                                            </div>
+                                        </div>
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="3"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                <!--DATASET CARDS-->
+                                    <div><a target="_self" href="/dataset.xhtml?id=463&amp;versionId=65"><span style="padding:4px 0;">hello</span></a>
+                                    </div>
+                                    <!--&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;-->
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;">
+                                        <!-- img src=&quot;/resources/images/icon_dataset.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataset&quot;/ --><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/dataset.xhtml?id=463&amp;versionId=65">
+                                            <!-- p:graphicImage value=&quot;/api/access/dsPreview/463&quot;/ --><img alt="" src="/api/access/dsPreview/65?pfdrid_c=true" id="resultsTable:3:j_idt833" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;"> Nov 5, 2014</span><a target="_self" href="/dataverse.xhtml?id=461">123testing Dataverse</a><span class="resultDatasetCitationBlock bg-info">sotiri, elda , 2014, "hello", http://dx.doi.org/10.5072/FK2/463,  My Halloween Dataverse,  V1</span>test test 
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="4"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/123testing"><span style="padding:4px 0;">123testing Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/123testing">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/461?pfdrid_c=true" id="resultsTable:4:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 5, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                        <div style="clear:left;">
+                                            <a value="javascript:void(0)" href="#childDatasetBlock461" data-parent="#accordion" data-toggle="collapse">
+                                                Preview Recently Released Datasets [+]
+                                            </a>
+                                            <div id="childDatasetBlock461" class="panel-collapse collapse"><div class="ui-datatable ui-widget ui-datatable-scrollable" id="resultsTable:4:childDatasetTable"><div class="ui-widget-header ui-datatable-scrollable-header"><div class="ui-datatable-scrollable-header-box"><table role="grid"><thead id="resultsTable:4:childDatasetTable_head"><tr role="row"><th style="font-size: smaller; width: 90%" role="columnheader" class="ui-state-default" id="resultsTable:4:childDatasetTable:j_idt811"><span>Title</span></th><th style="font-size: smaller; width: 10%; text-align: right" role="columnheader" class="ui-state-default" id="resultsTable:4:childDatasetTable:j_idt815"><span>Files</span></th></tr></thead></table></div></div><div class="ui-datatable-scrollable-body"><table role="grid"><colgroup><col /><col /></colgroup><tbody class="ui-datatable-data ui-widget-content" id="resultsTable:4:childDatasetTable_data"><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="0"><td style="font-size: smaller; width: 90%" role="gridcell">
+                                                        <img border="0" alt="Dataset" style="width:18px;margin:0 4px 0 0;vertical-align:bottom;" src="/resources/images/icon_dataset.png" /><a target="_self" href="/dataset.xhtml?id=463">hello</a></td><td style="font-size: smaller; width: 10%; text-align: right" role="gridcell">2 Files</td></tr></tbody></table></div><div class="ui-widget-header ui-datatable-scrollable-footer"><div class="ui-datatable-scrollable-footer-box"><table role="grid"><tfoot></tfoot></table></div></div><div class="ui-datatable-footer ui-widget-header ui-corner-bottom"><a target="_self" style="font-weight:normal; font-size: smaller;" href="/dataverse.xhtml?id=461">View All Datasets and Dataverses &gt;</a></div><input type="hidden" value="0,0" autocomplete="off" name="resultsTable:4:childDatasetTable_scrollState" id="resultsTable:4:childDatasetTable_scrollState" /></div>
+                                            </div>
+                                        </div>
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="5"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/tbest"><span style="padding:4px 0;">The Best Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/tbest">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/422?pfdrid_c=true" id="resultsTable:5:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 4, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                        <div style="clear:left;">
+                                            <a value="javascript:void(0)" href="#childDatasetBlock422" data-parent="#accordion" data-toggle="collapse">
+                                                Preview Recently Released Datasets [+]
+                                            </a>
+                                            <div id="childDatasetBlock422" class="panel-collapse collapse"><div class="ui-datatable ui-widget ui-datatable-scrollable" id="resultsTable:5:childDatasetTable"><div class="ui-widget-header ui-datatable-scrollable-header"><div class="ui-datatable-scrollable-header-box"><table role="grid"><thead id="resultsTable:5:childDatasetTable_head"><tr role="row"><th style="font-size: smaller; width: 90%" role="columnheader" class="ui-state-default" id="resultsTable:5:childDatasetTable:j_idt811"><span>Title</span></th><th style="font-size: smaller; width: 10%; text-align: right" role="columnheader" class="ui-state-default" id="resultsTable:5:childDatasetTable:j_idt815"><span>Files</span></th></tr></thead></table></div></div><div class="ui-datatable-scrollable-body"><table role="grid"><colgroup><col /><col /></colgroup><tbody class="ui-datatable-data ui-widget-content" id="resultsTable:5:childDatasetTable_data"><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="0"><td style="font-size: smaller; width: 90%" role="gridcell">
+                                                        <img border="0" alt="Dataset" style="width:18px;margin:0 4px 0 0;vertical-align:bottom;" src="/resources/images/icon_dataset.png" /><a target="_self" href="/dataset.xhtml?id=424">Test Datetime</a></td><td style="font-size: smaller; width: 10%; text-align: right" role="gridcell">5 Files</td></tr></tbody></table></div><div class="ui-widget-header ui-datatable-scrollable-footer"><div class="ui-datatable-scrollable-footer-box"><table role="grid"><tfoot></tfoot></table></div></div><div class="ui-datatable-footer ui-widget-header ui-corner-bottom"><a target="_self" style="font-weight:normal; font-size: smaller;" href="/dataverse.xhtml?id=422">View All Datasets and Dataverses &gt;</a></div><input type="hidden" value="0,0" autocomplete="off" name="resultsTable:5:childDatasetTable_scrollState" id="resultsTable:5:childDatasetTable_scrollState" /></div>
+                                            </div>
+                                        </div>
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="6"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/gpd"><span style="padding:4px 0;">GPD Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/gpd">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/410?pfdrid_c=true" id="resultsTable:6:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 4, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="7"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/prettyfaces"><span style="padding:4px 0;">prettyfaces Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/prettyfaces">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/401?pfdrid_c=true" id="resultsTable:7:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 4, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-even" data-ri="8"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                    <div><a target="_self" href="/view-datataverse/testooooo"><span style="padding:4px 0;">testooooo Dataverse</span></a>
+                                    </div>
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;"><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/view-datataverse/testooooo">
+                                            <!--img src=&quot;/resources/images/icon_dataverse.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataverse&quot;/--><img alt="" src="/api/access/dvCardImage/402?pfdrid_c=true" id="resultsTable:8:j_idt786" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;">Nov 4, 2014</span>
+
+                                    <hr style="margin:.5em;border:0;" />
+                                <!--DATASET CARDS-->
+
+                                <!--FILE CARDS--></td></tr><tr role="row" class="ui-widget-content ui-datatable-odd" data-ri="9"><td role="gridcell">
+                                <!--DATAVERSE CARDS-->
+                                <!--DATASET CARDS-->
+                                    <div><a target="_self" href="/dataset.xhtml?id=404&amp;versionId=55"><span style="padding:4px 0;">Test Stata 13 Ingest</span></a>
+                                    </div>
+                                    <!--&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;-->
+                                    <div style="width:48px; float:left; margin:4px 12px 6px 0;">
+                                        <!-- img src=&quot;/resources/images/icon_dataset.png&quot; style=&quot;width:48px;&quot; border=&quot;0&quot; alt=&quot;Dataset&quot;/ --><a target="_self" style="display:block; clear:left; margin-bottom: .5em;" href="/dataset.xhtml?id=404&amp;versionId=55">
+                                            <!-- p:graphicImage value=&quot;/api/access/dsPreview/404&quot;/ --><img alt="" src="/api/access/dsPreview/55?pfdrid_c=true" id="resultsTable:9:j_idt833" /></a>
+                                    </div><span style="color:#999999; margin-right:.5em;"> Nov 4, 2014</span><span class="resultDatasetCitationBlock bg-info">Privileged, Pete, 2014, "Test Stata 13 Ingest", http://dx.doi.org/10.5072/FK2/404,  My Halloween Dataverse,  V1</span>test
+
+                                <!--FILE CARDS--></td></tr></tbody></table></div></div>
+                        <!-- BOTTOM PAGINATOR -->
+                            <div class="results-sort-pagination results-bottom pull-right">
+                                <!-- PAGINATOR -->
+                                <div class="pagination pull-right">
+                                    <ul class="pagination">
+                                        <!--should take you to page 1-->
+                                        <li class="disabled"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">«</a>
+                                        </li>
+                                        <li class="disabled"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">&lt; Previous</a>
+                                        </li>
+                                            <li class="active"><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=1">1
+                                                    <span class="sr-only"> (current)
+                                                    </span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=2">2
+                                                    <span>
+                                                    </span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=3">3
+                                                    <span>
+                                                    </span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=4">4
+                                                    <span>
+                                                    </span></a>
+                                            </li>
+                                            <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=5">5
+                                                    <span>
+                                                    </span></a>
+                                            </li>
+                                        <li><a href="?id=&amp;q=&amp;types=dataverses%3Adatasets&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=2">Next &gt;</a>
+                                        </li>
+                                        <li><a href="?id=&amp;q=&amp;sort=release_or_create_date_dt&amp;order=desc&amp;page=5&amp;types=dataverses%3Adatasets">»</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+                <script type="text/javascript">
+                    //&lt;![CDATA[
+                    $(document).ready(function() {
+                        initPopover();
+                        characterCounter();
+                        initCarousel();
+                    });
+
+                    function initCarousel() {
+                        var owl1 = $("#featuredDataversesList");
+                        var owl2 = $("#categoryDataversesList");
+
+                        owl1.owlCarousel({
+                            pagination: false,
+                            navigation: false,
+                            // navigationText: ["&lt;span class=\"glyphicon glyphicon-chevron-left\" style=\"color:#999999;font-size:2em;\"&gt;&lt;/span&gt;","&lt;span class=\"glyphicon glyphicon-chevron-right\" style=\"color:#999999;font-size:2em;\"&gt;&lt;/span&gt;"],
+                            items: 4, //10 items above 1000px browser width
+                            itemsDesktop: [1140, 4], //5 items between 1000px and 901px
+                            itemsDesktopSmall: [940, 3], // betweem 900px and 601px
+                            itemsTablet: [720, 2], //2 items between 600 and 0
+                            itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
+                        });
+                        if (owl1.find('div.owl-item').length &gt; 4) {
+                            // Custom Navigation Events
+                            $(".next1").click(function() {
+                                owl1.trigger('owl.next');
+                            });
+                            $(".prev1").click(function() {
+                                owl1.trigger('owl.prev');
+                            });
+                        } else {
+                            $("#featuredDataversesBlock .customNavigation a.btn").hide();
+                        }
+
+                        owl2.owlCarousel({
+                            pagination: false,
+                            navigation: false,
+                            // navigationText: ["&lt;span class=\"glyphicon glyphicon-chevron-left\" style=\"color:#999999;font-size:2em;\"&gt;&lt;/span&gt;","&lt;span class=\"glyphicon glyphicon-chevron-right\" style=\"color:#999999;font-size:2em;\"&gt;&lt;/span&gt;"],
+                            items: 4, //10 items above 1000px browser width
+                            itemsDesktop: [1140, 4], //5 items between 1000px and 901px
+                            itemsDesktopSmall: [940, 3], // betweem 900px and 601px
+                            itemsTablet: [720, 2], //2 items between 600 and 0
+                            itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
+                        });
+                        if (owl2.find('div.owl-item').length &gt; 4) {
+                            // Custom Navigation Events
+                            $(".next2").click(function() {
+                                owl2.trigger('owl.next');
+                            });
+                            $(".prev2").click(function() {
+                                owl2.trigger('owl.prev');
+                            });
+                        } else {
+                            $("#categoryDataversesBlock .customNavigation a.btn").hide();
+                        }
+                    }
+
+                    function initPopover() {
+                        $('#content label.control-label[data-toggle="popover"]').popover();
+                        $('body').on('click', function(e) {
+                            $('label[data-toggle="popover"]').each(function() {
+                                //the 'is' for buttons that trigger popups
+                                //the 'has' for icons within a button that triggers a popup
+                                if (!$(this).is(e.target) &amp;&amp; $(this).has(e.target).length === 0 &amp;&amp; $('.popover').has(e.target).length === 0) {
+                                    $(this).popover('hide');
+                                }
+                            });
+                        });
+                    }
+
+                    function updateInclude(){
+                       $('button[id$="hiddenRefresh"]').trigger('click');
+                    }
+
+
+                    function characterCounter() {
+                        $.fn.extend({
+                            updateCounter: function(limit, elem) {
+                                $(this).on("keyup focus", function() {
+                                    setCount(this, elem);
+                                });
+                                function setCount(src, elem) {
+                                    if (typeof src === "undefined") {
+                                        return;
+                                    }
+                                    var chars = src.value.length;
+                                    elem.html(limit - chars);
+                                }
+                                setCount($(this)[0], elem);
+                            }
+                        });
+
+                        var elem = $("#chars");
+                        $("textarea[id$='description']").updateCounter(1000, elem);
+                    }
+                    //]]&gt;
+                </script>
+        </div>
+        <div style="margin-top:3em;" id="footer" class="container clearfix">
+            <div class="pull-left">
+                Copyright © 2014 The President &amp; Fellows of Harvard College <!-- | &lt;a href=&quot;#&quot;&gt;Privacy&lt;/a&gt; -->
+            </div>
+            <div class="pull-right clearfix">
+                <div class="poweredbylogo pull-left"><span style="color:#808080;font-size:.85em;margin-right:.3em;">Powered by</span><img src="/resources/images/dataverseproject_logo.jpg" /></div>
+                <div style="margin-top:24px;font-size:.85em;color:#808080;" class="version pull-right">v. 4.0 Beta build 643</div>
+            </div>
+        </div><div id="ajaxStatusPanel"><div style="display:none" id="ajaxStatusPanel_start"><img src="/resources/images/ajax-loading.gif" /></div><div style="display:none" id="ajaxStatusPanel_complete">
+                <!-- DO NOTHING --></div></div>
+<!--        &lt;h:outputScript library=&quot;js&quot; name=&quot;jquery.min.js&quot; /&gt;--><script src="/javax.faces.resource/js/bootstrap.min.js.xhtml?ln=bs" type="text/javascript"></script><script src="/javax.faces.resource/js/bootstrap-hover-dropdown.min.js.xhtml?ln=bs" type="text/javascript"></script><script src="/javax.faces.resource/ie-compat.js.xhtml?ln=js" type="text/javascript"></script><script src="/javax.faces.resource/dv_rebind_bootstrap_ui.js.xhtml?ln=js" type="text/javascript"></script><script src="/javax.faces.resource/owl.carousel.js.xhtml?ln=js" type="text/javascript"></script>
+        <script>
+            
+            $(document).ready(function() {
+                // Navbar Search Toggle
+                $(document).on('click', '#navbar-search-toggle', function (e) {
+                    $(this).parent("li").hide();
+                    $("form.navbar-form[role='search']").show();
+                });
+                $('body').click(function(e) {
+                    if (!$(e.target).closest("form.navbar-form[role='search']").length) {
+                        $("form.navbar-form[role='search']").hide();
+                        $("#navbar-search-toggle").parent("li").show();
+                    };
+                });
+                // Rebind bootstrap UI components
+                bind_bsui_components();                
+            });
+        </script>	
+       <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-3745567-10', 'harvard.edu');
+          ga('send', 'pageview');
+	</script>
+<div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div><div class="ui-dialog-docking-zone"></div></body></html>
