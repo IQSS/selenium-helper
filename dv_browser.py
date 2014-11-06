@@ -1,6 +1,7 @@
 from selenium_helper import SeleniumHelper
 from msg_util import *
 from random import randint
+from collections import OrderedDict
 import requests
 
 class CreateDatasetTester:
@@ -47,7 +48,26 @@ class CreateDatasetTester:
         assert self.sdriver is not None, "self.sdriver cannot be None"
         self.sdriver.goto_link('https://dvn-build.hmdc.harvard.edu/dataverseuser.xhtml')
     
-    
+    def goto_random_dvobject(self):
+        msgt('Navigate to Random DvObject')
+        assert self.sdriver is not None, "self.sdriver cannot be None"
+        
+        d = self.sdriver
+        available_links = d.get_dvobject_links()
+        if len(available_links) > 0:
+            random_idx = randint(0, len(available_links)-1)
+            msgt('go to random page: %s' % available_links[random_idx])
+            d.goto_link(available_links[random_idx])
+            self.sleep()
+            self.has_expected_name()
+            
+            msg('go back home')
+            d.goto_link("/")
+            self.sleep()
+            self.has_expected_name()
+        else:
+            msg('no available links...')
+            
     def browse_around(self, loops=100):
         # assume already logged in
         #self.logout()
@@ -63,18 +83,7 @@ class CreateDatasetTester:
             self.has_expected_name()
 
             # go to random available page
-            available_links = d.get_dvobject_links()
-            if len(available_links) > 0:
-                random_idx = randint(0, len(available_links)-1)
-                msgt('go to random page: %s' % available_links[random_idx])
-                d.goto_link(available_links[random_idx])
-                self.sleep()
-                self.has_expected_name()
-                
-                msg('go back home')
-                d.goto_link("/")
-                self.sleep()
-                self.has_expected_name()
+            self.goto_random_dvobject()
                 
             # Go to dataverse user page, sleep, check name
             self.goto_dataverse_user_page()
@@ -157,25 +166,44 @@ class CreateDatasetTester:
         d.find_by_id_click('dataverseForm:save')
         """
 
+def run_as_user(dataverse_url, auth, expected_name):
+
+    tester = CreateDatasetTester(dataverse_url, auth, expected_name=expected_name)
+    tester.login()
+    tester.browse_around(loops=100)
+
 def run_user_pete(dataverse_url):
     auth = ('pete', 'pete')
-    tester = CreateDatasetTester(dataverse_url, auth, expected_name='Pete Privileged')
-    tester.login()
-    tester.browse_around(loops=250)
+    run_as_user(dataverse_url, auth, 'Pete Privileged')
 
-def run_user_rprasad(dataverse_url):
-    auth = ('rprasad', '123')
-    tester = CreateDatasetTester(dataverse_url, auth, expected_name='Raman Prasad')
-    tester.login()
-    tester.browse_around()
+def run_user_uma(dataverse_url):
+    auth = ('uma', 'uma')
+    run_as_user(dataverse_url, auth, 'Uma Underprivileged')
+
+def run_user_nick(dataverse_url):
+    auth = ('nick', 'nick')
+    run_as_user(dataverse_url, auth, 'Nick NSA')
+
+def run_user_cathy(dataverse_url):
+    auth = ('cathy', 'cathy')
+    run_as_user(dataverse_url, auth, 'Cathy Collaborator')
+
+def run_user_gabbi(dataverse_url):
+    auth = ('gabbi', 'gabbi')
+    run_as_user(dataverse_url, auth, 'Gabbi Guest')
+
 
 
 if __name__=='__main__':
     dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
     
-    user_choices = { '1' : run_user_pete\
-                    , '2' : run_user_rprasad\
-                    }
+    
+    user_choices = OrderedDict( [ ('1' , run_user_pete)\
+                    , ('2' , run_user_uma)\
+                    , ('3' , run_user_nick)\
+                    , ('4' , run_user_cathy)\
+                    , ('5' , run_user_gabbi)\
+                    ] )
     
     if len(sys.argv) == 2 and sys.argv[1] in user_choices.keys():
         print 'do something'
