@@ -37,7 +37,7 @@ python dv_browser.py 1
 
 - Open a new terminal 
 
-```
+```unix
 cd ~/selenium-helper
 workon dv-selenium-test
 python dv_browser.py
