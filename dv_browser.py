@@ -213,8 +213,8 @@ def run_user_gabbi(dataverse_url):
 
 
 if __name__=='__main__':
-    #dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
-    dataverse_url = 'https://shibtest.dataverse.org'
+    dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
+    #dataverse_url = 'https://shibtest.dataverse.org'
     
     
     user_choices = OrderedDict( [ ('1' , run_user_pete)\
