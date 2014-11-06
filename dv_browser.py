@@ -3,6 +3,9 @@ from msg_util import *
 from random import randint
 from collections import OrderedDict
 import requests
+from datetime import datetime
+import time
+import os
 
 class CreateDatasetTester:
     
@@ -12,6 +15,7 @@ class CreateDatasetTester:
         self.expected_name = expected_name
         self.sdriver = SeleniumHelper()
     
+        
     def has_expected_name(self):
         """
         Look for the logged in name in the upper right corner of the screen
@@ -24,8 +28,17 @@ class CreateDatasetTester:
         if page_source.find(search_str) == -1:
             msg('!' * 200)
             msg('Not logged in as: %s' % self.expected_name)
-            msgt('pause for 10 minutes!')
-            self.sleep(60*10)
+            msg('May also be a 500 error')
+
+            thetime = time.time()
+            fname = 'not_logged_in-%s.html' % datetime.fromtimestamp(\
+                                                        thetime\
+                                                ).strftime("%Y-%m-%d_%H%M-%S")
+            fname = os.path.join('bad_html_pages', fname)
+            open(fname, 'w').write(page_source.encode('utf-8'))
+            msgt('Bad html file written: %s' % fname)
+            msgt('pause for 5 minutes!')
+            self.sleep(60*5)
         else:
             msg('Still logged in as: %s' % self.expected_name)
         return True
@@ -46,7 +59,7 @@ class CreateDatasetTester:
     
     def goto_dataverse_user_page(self):
         assert self.sdriver is not None, "self.sdriver cannot be None"
-        self.sdriver.goto_link('https://dvn-build.hmdc.harvard.edu/dataverseuser.xhtml')
+        self.sdriver.goto_link('/dataverseuser.xhtml')
     
     def goto_random_dvobject(self):
         msgt('Navigate to Random DvObject')
@@ -95,9 +108,14 @@ class CreateDatasetTester:
             self.sleep()
             self.has_expected_name()
             
-            # Go to new dataset page, sleep, add data, cancel, check name
-            self.start_adding_new_data_and_cancel()
+            msg('go to advanced search')
+            d.goto_link('/search/advanced.xhtml')
+            self.sleep()
             self.has_expected_name()
+            
+            # Go to new dataset page, sleep, add data, cancel, check name
+            #self.start_adding_new_data_and_cancel()
+            #self.has_expected_name()
     
     def start_adding_new_data_and_cancel(self):
         msg('Add new dataset')
@@ -195,7 +213,8 @@ def run_user_gabbi(dataverse_url):
 
 
 if __name__=='__main__':
-    dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
+    #dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
+    dataverse_url = 'https://shibtest.dataverse.org'
     
     
     user_choices = OrderedDict( [ ('1' , run_user_pete)\

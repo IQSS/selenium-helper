@@ -12,7 +12,7 @@ class SeleniumHelper:
     def quit(self):
         if self.driver:
             self.driver.quit()
-    
+            
     def get_page_source(self):
         if not self.driver:
             return None

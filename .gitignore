@@ -1,3 +1,4 @@
+bad_html_pages/*.html
 /input/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
