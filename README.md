@@ -1,6 +1,6 @@
 ### Test scripts
 
-#### Assumes virtualenv and virtualenvwrapper
+#### Assumes [virtualenv](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#installation) and [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/install.html)
 
 #### Start wrapper
 
