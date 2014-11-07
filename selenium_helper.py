@@ -1,4 +1,5 @@
 import time
+import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
@@ -73,30 +74,77 @@ class SeleniumHelper:
     def get(self, lnk):
         self.driver.get(lnk)
         
+    def find_by_css_selector_and_click(self, selection_text, click=True):
+
+        if self.driver is None or selection_text is None:
+            return False
+        
+        e = None
+        
+        try:
+            e = self.driver.find_element_by_css_selector(selection_text)
+        except selenium.common.exceptions.NoSuchElementException:
+            msgt('Error: Could not find element via css selector: %s' % selection_text)
+            return False
+            
+        if e and click is True: 
+            e.click()
+        
+        return True
+            
+        
     def find_link_by_text_click(self, link_text):
         print 'find_link_by_text_click: %s' % link_text
         if self.driver is None or link_text is None:
-            return
-        e = self.driver.find_element_by_link_text(link_text)
+            return False
+        
+        e = None
+        
+        try:
+            e = self.driver.find_element_by_link_text(link_text)
+        except selenium.common.exceptions.NoSuchElementException:
+            msgt('Error: Could not find element by link text: %s' % link_text)
+            return False
+            
         if e: e.click()
-    
+        return True
+        
     def find_by_id_click(self, id_val):
         print 'find_by_id_click: %s' % id_val
         
         if self.driver is None or id_val is None:
-            return
-        e = self.driver.find_element_by_id(id_val)
+            return False
+        
+        e = None
+        
+        try:
+            e = self.driver.find_element_by_id(id_val)
+        except selenium.common.exceptions.NoSuchElementException:
+            msgt('Error: Could not find element by id: %s' % id_val)
+            return False
+            
         if e: e.click()
+        return True
+        
         
     def find_by_id_send_keys(self, id_val, keys_val):   
         print 'find_by_id_send_keys  [id:%s] [keys:%s]' % (id_val, keys_val)
         
         if self.driver is None or id_val is None or keys_val is None:
-            return
-        e = self.driver.find_element_by_id(id_val)
+            return False
+        
+        e = None
+        try:
+            e = self.driver.find_element_by_id(id_val)
+        except selenium.common.exceptions.NoSuchElementException:            
+            msgt('Error: Could not find element by id: %s' % id_val)
+            return False
+
+
         if e: 
             e.clear()
             e.send_keys(keys_val)
+        return True
     
     
     def get_dvobject_links(self):
