@@ -93,7 +93,7 @@ class CreateDatasetTester:
             
             # Every Nth loop, logout and login
             #
-            loop_to_logout = 1  # e.g. '3' means every 3rd loop, '10' means every 10th loop, etc.
+            loop_to_logout = 2  # e.g. '3' means every 3rd loop, '10' means every 10th loop, etc.
             if cnt > 0 and (cnt % loop_to_logout) == 0:
                 msgt('Log out and then Log in again')        
                 #msg('cnt/mod: %s|%s' % (cnt, (cnt%loop_to_logout)))
