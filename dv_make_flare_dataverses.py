@@ -1,3 +1,4 @@
+import os
 from selenium_helper import SeleniumHelper
 from msg_util import *
 from random import randint
@@ -17,7 +18,7 @@ class CreateDatasetTester:
         self.auth = auth
         self.expected_name = expected_name
         self.sdriver = SeleniumHelper()
-
+        self.flare_cnt = 0
 
     def check_name(self):
         """
@@ -48,76 +49,58 @@ class CreateDatasetTester:
             msg('no available links...')
 
 
+    def make_dv_dict(self, dv_name):
+        return dict( name=dv_name,\
+                    alias=dv_name.replace(' ', '-').lower(),\
+                    description='Store the datasets for %s' % dv_name,\
+                    category='RESEARCH_PROJECTS',\
+                    contact_email='%s@harvard.edu' % (dv_name.replace(' ', '-').lower()),\
+                    )
 
-    def make_some_dataverses(self):
 
-        # Already logged in...
+    def make_dataverse_from_dict(self, flare_dict, depth):
 
-        # Make dataverse 1
-        #
-        dv_info = dict( name='Elevation',\
-                        alias='elevation',\
-                        description='Elevation Tour Live Slane Castle,Ireland.. September 1 2001',\
-                        category='RESEARCH_PROJECTS',\
-                        contact_email='harvie@mudd.edu',\
-                )
-        make_dataverse(self.sdriver, dv_info)
+        if flare_dict is None:
+            return
 
-        # Go to the Dataverse alias page
-        #
-        goto_dataverse_by_alias(self.sdriver, 'elevation')
+        #if self.flare_cnt == 15:
+        #    msgx('stopping')
+
+        dataverse_name = flare_dict.get('name', None)
+        if dataverse_name is None:
+            return
+
+        dv_dict = self.make_dv_dict(dataverse_name)
+        self.flare_cnt+=1
+        msg('(%s)%s(%s) make dataverse: [%s]' %  ( self.flare_cnt, '---|'*depth, depth, dataverse_name))
+        make_dataverse(self.sdriver, dv_dict)
         pause_script()
-
-        # Publish the dataverse
-        #
         publish_dataverse(self.sdriver)
         pause_script()
-        self.check_name()
 
-        # Make dataverse 2
-        #
-        dv_info = dict( name='Joshua Tree',\
-                alias='desert',\
-                description=' which took place during 1987, in support of their album',\
-                category='RESEARCH_PROJECTS',\
-                )
-        make_dataverse(self.sdriver, dv_info)
+        for child_flare_dict in flare_dict.get('children', []):
+            self.make_dataverse_from_dict(child_flare_dict, depth=depth+1)
 
+    def start_flare_process(self):
 
+        flare_info = open(os.path.join('input','flare.json'), 'r').read()
+        flare_dict = json.loads(flare_info)
+
+        self.make_dataverse_from_dict(flare_dict, depth=0)
 
 
-
-    def start_adding_new_data_and_cancel(self):
-        msg('Add new dataset')
-        assert self.sdriver is not None, "self.sdriver cannot be None"
-
-        d = self.sdriver
-        d.find_link_in_soup_and_click('New Dataset')
-
-        pause_script()
-        # try to add title
-        # find <a rel="title" class="pre-input-tag"></a>
-        prefix = 'pre-input-'
-        d.find_input_box_and_fill('%stitle' % prefix, 'A Hard Rain is Gonna Fall')
-        d.find_input_box_and_fill('%sauthor' % prefix, 'Bob Dylan')
-        d.find_input_box_and_fill('%sdatasetContact' % prefix, 'bd@harvard.edu')
-        d.find_input_box_and_fill('%sdsDescription' % prefix, 'A long and winding description', input_type='textarea')
-
-        d.find_by_id_click('datasetForm:cancelCreate')
-        pause_script()
 
     def login(self):
         login_user(self.sdriver, self.dv_url, self.auth[0], self.auth[1])
 
-        msg('Check if Pete is logged in')
         self.check_name()
 
 
 def run_as_user(dataverse_url, auth, expected_name):
 
     tester = CreateDatasetTester(dataverse_url, auth, expected_name=expected_name)
-    tester.login()
-    tester.make_some_dataverses()
+    #tester.login()
+    tester.start_flare_process()
 
 def run_user_admin(dataverse_url):
     auth = ('admin', 'admin')

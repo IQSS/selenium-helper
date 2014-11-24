@@ -3,7 +3,10 @@
 
 
 bad_html_pages/*.html
-/input/*
+/input/*.txt
+/input/*.zip
+/input/*.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
