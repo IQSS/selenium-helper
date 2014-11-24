@@ -126,8 +126,7 @@ class SeleniumHelper:
         if e: e.click()
         return True
         
-        
-    def find_by_id_send_keys(self, id_val, keys_val):   
+    def find_by_id_send_keys(self, id_val, keys_val, clear_existing_val=True):
         print 'find_by_id_send_keys  [id:%s] [keys:%s]' % (id_val, keys_val)
         
         if self.driver is None or id_val is None or keys_val is None:
@@ -141,8 +140,9 @@ class SeleniumHelper:
             return False
 
 
-        if e: 
-            e.clear()
+        if e:
+            if clear_existing_val:
+                e.clear()
             e.send_keys(keys_val)
         return True
     
