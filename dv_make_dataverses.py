@@ -8,8 +8,9 @@ import time
 import os
 
 from selenium_dv_actions import pause_script, login_user, logout_user,\
-                        has_expected_name, goto_dataverse_user_page\
-                        , goto_home, make_dataverse
+                        has_expected_name, goto_dataverse_user_page,\
+                        goto_home, make_dataverse, goto_dataverse_by_alias,\
+                        publish_dataverse
 
 
 class CreateDatasetTester:
@@ -49,64 +50,44 @@ class CreateDatasetTester:
         else:
             msg('no available links...')
 
-    def browse_around(self, loops=1):
-        # assume already logged in
 
-        for cnt in range(1, loops+1):
+    def make_some_dataverses(self):
 
-            # Every Nth loop, logout and login
-            #
-            loop_to_logout = 2  # e.g. '3' means every 3rd loop, '10' means every 10th loop, etc.
-            if cnt > 0 and (cnt % loop_to_logout) == 0:
-                msgt('Log out and then Log in again')
-                #msg('cnt/mod: %s|%s' % (cnt, (cnt%loop_to_logout)))
-                logout_user(self.sdriver)
-                pause_script()
+        # Already logged in...
 
-                self.login()
-                pause_script()
-                self.check_name()
+        # Make dataverse 1
+        #
+        dv_info = dict( name='Elevation',\
+                alias='elevation',\
+                description='Elevation Tour Live Slane Castle,Ireland.. September 1 2001',\
+                category='RESEARCH_PROJECTS',\
+                contact_email='harvie@mudd.edu',\
+                )
+        make_dataverse(self.sdriver, dv_info)
 
-            dv_info = dict( name='Elevation',\
-                    alias='elevation',\
-                    description='Elevation Tour Live Slane Castle,Ireland.. September 1 2001',\
-                    category='RESEARCH_PROJECTS',\
-                    contact_email='harvie@mudd.edu',\
-                    )
-            make_dataverse(self.sdriver, dv_info)
-            return
+        # Go to the Dataverse alias page
+        #
+        goto_dataverse_by_alias(self.sdriver, 'elevation')
+        pause_script()
 
+        # Publish the dataverse
+        #
+        publish_dataverse(self.sdriver)
+        pause_script()
+        self.check_name()
 
-            msgt('Loop #%d' % cnt )
-            d = self.sdriver
-
-            # Go to home page, sleep, check name
-            goto_home(self.sdriver)
-            pause_script()
-            self.check_name()
-
-            # go to random available page
-            self.goto_random_dvobject()
-
-            # Go to dataverse user page, sleep, check name
-            goto_dataverse_user_page(self.sdriver)
-            pause_script()
-            self.check_name()
+        # Make dataverse 2
+        #
+        dv_info = dict( name='Joshua Tree',\
+                alias='desert',\
+                description=' which took place during 1987, in support of their album',\
+                category='RESEARCH_PROJECTS',\
+                )
+        make_dataverse(self.sdriver, dv_info)
 
 
-            goto_home(self.sdriver)
-            pause_script()
-            self.check_name()
 
-            msg('go to advanced search')
-            d.goto_link('/search/advanced.xhtml')
-            pause_script()
-            d.find_by_id_send_keys('advancedSearchForm:dvFieldName', 'dataverse')
-            self.check_name()
 
-            # Go to new dataset page, sleep, add data, cancel, check name
-            #self.start_adding_new_data_and_cancel()
-            #self.check_name()
 
     def start_adding_new_data_and_cancel(self):
         msg('Add new dataset')
@@ -138,7 +119,12 @@ def run_as_user(dataverse_url, auth, expected_name):
 
     tester = CreateDatasetTester(dataverse_url, auth, expected_name=expected_name)
     tester.login()
-    tester.browse_around(loops=1000)
+    tester.make_some_dataverses()
+
+def run_user_admin(dataverse_url):
+    auth = ('admin', 'admin')
+    run_as_user(dataverse_url, auth, 'Admin Dataverse')
+
 
 def run_user_pete(dataverse_url):
     auth = ('pete', 'pete')
@@ -168,7 +154,9 @@ if __name__=='__main__':
     #dataverse_url = 'http://localhost:8080'
 
 
-    user_choices = OrderedDict( [ ('1' , run_user_pete)\
+    user_choices = OrderedDict( [\
+                      ('0', run_user_admin)\
+                    , ('1' , run_user_pete)\
                     , ('2' , run_user_uma)\
                     , ('3' , run_user_nick)\
                     , ('4' , run_user_cathy)\

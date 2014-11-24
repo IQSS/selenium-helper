@@ -1,8 +1,6 @@
 from selenium_helper import SeleniumHelper
 from msg_util import *
-from random import randint
 from collections import OrderedDict
-import requests
 from selenium_dataverse_specs import DataverseInfoChecker
 from datetime import datetime
 import time
@@ -37,6 +35,14 @@ def login_user(selenium_helper, dataverse_url, user_name, user_credentials):
     pause_script()
 
 
+def goto_dataverse_by_alias(selenium_helper, alias):
+    msgt('Go to Dataverse by Alias')
+    assert isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
+    assert alias is not None, "alias cannot be None"
+
+    selenium_helper.goto_link('/dataverse/%s' % alias)
+
+
 def logout_user(selenium_helper):
     msgt('Log out')
     assert isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
@@ -48,6 +54,26 @@ def logout_user(selenium_helper):
         # click logout
         #
         selenium_helper.find_by_css_selector_and_click("a[id$='lnk_header_logout']")
+
+
+def publish_dataverse(selenium_helper):
+
+    # retrieve the button elements
+    #
+    l = selenium_helper.get_elements_by_tag_name('button')
+
+    # click publish dataverse
+    #
+    for b in l:
+        if b.text == 'Publish Dataverse':
+            b.click()
+
+    # click "continue" on confirmation dialog
+    #
+    l2 = selenium_helper.get_elements_by_tag_name('button')
+    for b in l2:
+        if b.text == 'Continue':
+            b.click()
 
 
 def goto_home(selenium_helper):
@@ -104,7 +130,7 @@ def make_dataverse(selenium_helper, dv_info):
                     )
 
     """
-    assert  isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
+    assert isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
 
     DataverseInfoChecker.is_valid_dataverse_info(dv_info)
 
