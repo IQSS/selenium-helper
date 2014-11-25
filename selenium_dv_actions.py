@@ -34,6 +34,19 @@ def login_user(selenium_helper, dataverse_url, user_name, user_credentials):
     selenium_helper.find_by_id_click('loginForm:login')
     pause_script()
 
+def does_dataverse_exist(selenium_helper, alias):
+    assert isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
+    assert alias is not None, "alias cannot be None"
+
+    msg('does_dataverse_exist?: %s' % alias)
+    goto_dataverse_by_alias(selenium_helper, alias)
+    pause_script(3)
+
+    snippet_404 = """<strong>Page Not Found</strong>"""
+
+    return not selenium_helper.is_snippet_in_html(snippet_404)
+
+
 
 def goto_dataverse_by_alias(selenium_helper, alias):
     msgt('Go to Dataverse by Alias')
@@ -42,6 +55,38 @@ def goto_dataverse_by_alias(selenium_helper, alias):
 
     selenium_helper.goto_link('/dataverse/%s' % alias)
 
+
+def delete_dataverse_by_alias(selenium_helper, alias):
+    msgt('Go to Dataverse by Alias')
+    assert isinstance(selenium_helper, SeleniumHelper), "selenium_helper must be a SeleniumHelper object"
+    assert alias is not None, "alias cannot be None"
+
+    #   Note, "does_dataverse_exist" first goes to that page via alias
+    #
+    if does_dataverse_exist(selenium_helper, alias) is False:
+        msg('does not exist')
+        return
+
+    # Click "Edit Dataverse" button
+    #
+    button_elements1 = selenium_helper.get_elements_by_tag_name('button')
+    for b in button_elements1:
+        if b.text == 'Edit Dataverse':
+            b.click()
+
+    # Click "Delete Dataverse" button
+    #
+    selenium_helper.find_by_id_click('dataverseForm:deleteDataset')
+    #selenium_helper.find_link_in_soup_and_click('Delete Dataverse')
+
+    # click "Continue" in Confirmation box
+    #
+    button_elements2 = selenium_helper.get_elements_by_tag_name('button')
+    for b in button_elements2:
+        if b.text == 'Continue':
+            b.click()
+
+    pause_script(2)
 
 def logout_user(selenium_helper):
     msgt('Log out')

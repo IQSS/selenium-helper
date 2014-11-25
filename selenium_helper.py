@@ -53,8 +53,19 @@ class SeleniumHelper:
             msg('input box NOT found')
 
         self.find_by_id_send_keys(next_input_id, new_input)
-        
-        
+
+    def is_snippet_in_html(self, snippet):
+        assert self.driver is not None, "self.driver cannot be None"
+        assert snippet is not None, "snippet cannot be None"
+
+        current_page_html = self.driver.page_source
+
+        if current_page_html.find(snippet) > -1:
+            return True
+
+        return False
+
+
     def find_link_in_soup_and_click(self, link_name, url_fragment=None):
         msg('find_link_in_soup_and_click  [link_name:%s] [url_fragment:%s]' % (link_name, url_fragment))
         soup = BeautifulSoup(self.driver.page_source)
