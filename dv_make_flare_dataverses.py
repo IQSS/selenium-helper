@@ -8,7 +8,8 @@ import json
 from selenium_dv_actions import pause_script, login_user, logout_user,\
                         has_expected_name, goto_dataverse_user_page,\
                         goto_home, make_dataverse, goto_dataverse_by_alias,\
-                        publish_dataverse, delete_dataverse_by_alias
+                        publish_dataverse, delete_dataverse_by_alias,\
+                        does_dataverse_exist
 
 
 class CreateDatasetTester:
@@ -64,7 +65,7 @@ class CreateDatasetTester:
         if flare_dict is None:
             return
 
-        if self.flare_cnt == 5:
+        if self.flare_cnt == 108:
             msgx('stopping')
 
         if parent_dataverse_alias is not None:
@@ -74,17 +75,26 @@ class CreateDatasetTester:
         if dataverse_name is None:
             return
 
-        current_dataverse_alias = flare_dict['alias']
-        # update parent lookup
-        self.dataverse_parent_lookup[current_dataverse_alias] = parent_dataverse_alias
 
         dv_dict = self.make_dv_dict(dataverse_name)
         self.flare_cnt+=1
-        msg('(%s)%s(%s) make dataverse: [%s]' %  ( self.flare_cnt, '---|'*depth, depth, dataverse_name))
-        make_dataverse(self.sdriver, dv_dict)
-        pause_script()
-        publish_dataverse(self.sdriver)
-        pause_script()
+
+        current_dataverse_alias = dv_dict.get('alias')
+        #self.dataverse_parent_lookup[current_dataverse_alias] = parent_dataverse_alias
+
+
+        if not does_dataverse_exist(self.sdriver, current_dataverse_alias):
+            msg('(%s)%s(%s) make dataverse: [%s]' %  ( self.flare_cnt, '---|'*depth, depth, dataverse_name))
+            if parent_dataverse_alias:
+                goto_dataverse_by_alias(self.sdriver, parent_dataverse_alias)
+            else:
+                goto_home(self.sdriver)
+            pause_script()
+
+            make_dataverse(self.sdriver, dv_dict)
+            pause_script()
+            publish_dataverse(self.sdriver)
+            pause_script()
 
         for child_flare_dict in flare_dict.get('children', []):
             self.make_dataverse_from_dict(child_flare_dict\
@@ -118,8 +128,8 @@ def run_as_user(dataverse_url, auth, expected_name):
     tester = CreateDatasetTester(dataverse_url, auth, expected_name=expected_name)
     tester.login()
 
-    tester.delete_dataverses()
-    #tester.start_flare_process()
+    #tester.delete_dataverses()
+    tester.start_flare_process()
 
 def run_user_admin(dataverse_url):
     auth = ('admin', 'admin')

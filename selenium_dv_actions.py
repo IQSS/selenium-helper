@@ -8,7 +8,7 @@ import os
 
 
 
-def pause_script(num_seconds=3):
+def pause_script(num_seconds=2):
     """
     Pause for 'num_seconds' seconds
     """
