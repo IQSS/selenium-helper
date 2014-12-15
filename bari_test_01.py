@@ -1,4 +1,5 @@
 import os
+from os.path import join, abspath
 from selenium_helper import SeleniumHelper
 from msg_util import *
 from random import randint
@@ -8,7 +9,8 @@ import json
 from selenium_dv_actions import pause_script, login_user, logout_user,\
                         has_expected_name, goto_dataverse_user_page,\
                         goto_home, make_dataverse, goto_dataverse_by_alias,\
-                        publish_dataverse, delete_dataverse_by_alias,\
+                        publish_dataverse, publish_dataset,\
+                        delete_dataverse_by_alias,\
                         does_dataverse_exist
 
 
@@ -97,21 +99,24 @@ class LoadShapefileTester:
           # business checkbox
           d.find_by_css_selector_and_click("input[value='3']")  
           
+          file_upload_element = d.driver.find_element_by_id('datasetForm:tabView:fileUpload_input')
+          
           # send a file over
-          fpath = '/Users/rmp553/Documents/iqss-git/selenium-helper/input/social_disorder_in_boston_yqh.zip'
-          
-          d.driver.find_element_by_id('datasetForm:tabView:fileUpload_input').send_keys(fpath)
+          fpath = abspath(join('input', 'social_disorder_in_boston_yqh.zip'))
+          file_upload_element.send_keys(fpath)
 
-          fpath2 = '/Users/rmp553/Documents/iqss-git/selenium-helper/input/flare.json'
-          d.driver.find_element_by_id('datasetForm:tabView:fileUpload_input').send_keys(fpath2)
+          # send another file over
+          #fpath2 = abspath(join('input', 'flare.json'))          
+          #file_upload_element.send_keys(fpath2)
 
-          #d.driver.find_element_by_css_selector('input[type="file"]').clear()
-          #d.driver.find_element_by_css_selector('input[type="file"]').send_keys(fpath)
           
-         
-          #d.find_by_id_click("datasetForm:save")
+          d.find_by_id_click("datasetForm:save")
           #d.find_by_id_click('datasetForm:cancelCreate')
           
+          pause_script(4)
+
+          publish_dataset(self.sdriver)
+
           pause_script()
 
     def login(self):
@@ -130,9 +135,14 @@ def run_as_user(dataverse_url, auth, expected_name):
     tester = LoadShapefileTester(dataverse_url, auth, expected_name=expected_name)
     tester.login()
 
+    tester.start_process()  # make dataverse, publish it; make data set, publish it
+    
+    # workon publish
+    #tester.sdriver.goto_link('http://localhost:8080/dataset.xhtml?id=35&versionId=10')
+    #publish_dataset(tester.sdriver)
+    
     #tester.delete_dataverses()
-    tester.start_process()
-
+    #
 def run_user_admin(dataverse_url):
     auth = ('admin', 'admin')
     run_as_user(dataverse_url, auth, 'Admin Dataverse')

@@ -101,6 +101,35 @@ def logout_user(selenium_helper):
         selenium_helper.find_by_css_selector_and_click("a[id$='lnk_header_logout']")
 
 
+def publish_dataset(selenium_helper):
+    
+    # retrieve the button elements
+    #
+    l = selenium_helper.get_elements_by_tag_name('button')
+
+    # click publish dataverse
+    #
+    publish_button_found = False
+    for cnt, b in enumerate(l, start=1):
+        #msg('%s: %s' % (cnt, b.text))
+        if b.text == 'Publish Dataset':
+            publish_button_found = True
+            msg('found it')
+            b.click()
+
+    if publish_button_found is False:
+        msgt('Failed to find publish button!')
+        return
+        
+    # click "continue" on confirmation dialog
+    #
+    l2 = selenium_helper.get_elements_by_tag_name('button')
+    for b in l2:
+        if b.text == 'Continue':
+            b.click()
+
+    
+    
 def publish_dataverse(selenium_helper):
 
     # retrieve the button elements
