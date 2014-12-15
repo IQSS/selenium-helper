@@ -4,7 +4,7 @@
 
 bad_html_pages/*.html
 /input/*.txt
-/input/*.zip
+#/input/*.zip
 /input/*.html
 
 # Byte-compiled / optimized / DLL files
