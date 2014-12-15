@@ -64,7 +64,7 @@ class LoadShapefileTester:
 
     def start_process(self):
     
-        #self.make_dataverse_from_dict(self.get_test_dataverse_params('Shapefile Test'))
+        self.make_dataverse_from_dict(self.get_test_dataverse_params('Eat Boutique'))
 
         self.start_adding_new_data_including_files()
         
@@ -82,7 +82,8 @@ class LoadShapefileTester:
           # try to add title
           # find <a rel="title" class="pre-input-tag"></a>
           prefix = 'pre-input-'
-          d.find_input_box_and_fill('%stitle' % prefix, 'Lily, Rosemary, and the Jack of Hearts')
+          #d.find_input_box_and_fill('%stitle' % prefix, 'Lily, Rosemary, and the Jack of Hearts')
+          d.find_input_box_and_fill('%stitle' % prefix, "Bob Dylan's 115th Dream")
           d.find_input_box_and_fill('%sauthor' % prefix, 'Bob Dylan')
           d.find_input_box_and_fill('%sdatasetContact' % prefix, 'bd@harvard.edu')
           d.find_input_box_and_fill('%sdsDescription' % prefix, 'Shapefile upload test.', input_type='textarea')
@@ -108,12 +109,12 @@ class LoadShapefileTester:
           # send another file over
           #fpath2 = abspath(join('input', 'flare.json'))          
           #file_upload_element.send_keys(fpath2)
-
+          pause_script(5)
+          
           
           d.find_by_id_click("datasetForm:save")
           #d.find_by_id_click('datasetForm:cancelCreate')
-          
-          pause_script(4)
+          pause_script(14)
 
           publish_dataset(self.sdriver)
 
@@ -155,9 +156,9 @@ def run_user_pete(dataverse_url):
 
 
 if __name__=='__main__':
-    #dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
+    dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
     #dataverse_url = 'https://shibtest.dataverse.org'
-    dataverse_url = 'http://localhost:8080'
+    #dataverse_url = 'http://localhost:8080'
 
 
     user_choices = OrderedDict( [\
