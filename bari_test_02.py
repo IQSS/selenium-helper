@@ -19,7 +19,7 @@ import json
 from msg_util import *
 
 WORLDMAP_TOKEN_NAME = 'GEOCONNECT_TOKEN'
-WORLDMAP_TOKEN_VALUE = 'c974c378a78e9ff975f599600cd2257e88f2ad17e331542457a8f918d2b67b00'
+WORLDMAP_TOKEN_VALUE = '3af094abc715f919f8a5455be776da1047bf8e69db3ba2c9c1e53e5e61e7f123'
 DATAVERSE_SERVER = 'http://localhost:8080'
 
 class WorldMapBaseTest(unittest.TestCase):
@@ -45,7 +45,7 @@ class RetrieveFileMetadataTestCase(WorldMapBaseTest):
         return ''.join(random.SystemRandom().choice(string.uppercase + string.digits) for _ in xrange(token_length))
 
 
-    def run_test_02_delete_token(self):
+    def run_test_03_delete_token(self):
         api_url = '%s/api/worldmap/delete-token/' % (self.dataverse_server)
 
         #-----------------------------------------------------------
@@ -92,12 +92,61 @@ class RetrieveFileMetadataTestCase(WorldMapBaseTest):
         
         msg(r.status_code)
         self.assertEqual(r.status_code, 404, "Token already deleted. Should give a 404 status")
-        
+
+
+    def run_test_02_add_map_metadata(self):
+        pass
             
     def run_test01_metadata(self):
         
+        #-----------------------------------------------------------
         msgt("(1) Retrieve metadata")
+        #-----------------------------------------------------------
         api_url = '%s/api/worldmap/datafile/' % (self.dataverse_server)
+
+        #-----------------------------------------------------------
+        msgt("(1a) Try with no json params")
+        #-----------------------------------------------------------
+        msg('api_url: %s' % api_url)
+        try:
+            r = requests.post(api_url)
+        except requests.exceptions.ConnectionError as e:
+            msgx('Connection error: %s' % e.message)
+        except:
+            msgx("Unexpected error: %s" % sys.exc_info()[0])
+        msg(r.status_code)
+        self.assertEqual(r.status_code, 400, "Try with no json params")
+
+        #-----------------------------------------------------------
+        msgt("(1b) Try with empty string token")
+        #-----------------------------------------------------------
+        msg('api_url: %s' % api_url)
+        try:
+            r = requests.post(api_url, data=json.dumps({ self.wm_token_name: ''} ))
+        except requests.exceptions.ConnectionError as e:
+            msgx('Connection error: %s' % e.message)
+        except:
+            msgx("Unexpected error: %s" % sys.exc_info()[0])
+        msg(r.status_code)
+        self.assertEqual(r.status_code, 400, "Try without a token")
+
+        #-----------------------------------------------------------
+        msgt("(1c) Try a random token")
+        #-----------------------------------------------------------
+        msg('api_url: %s' % api_url)
+        try:
+            r = requests.post(api_url, data=json.dumps({ self.wm_token_name: self.get_random_token() } ))
+        except requests.exceptions.ConnectionError as e:
+            msgx('Connection error: %s' % e.message)
+        except:
+            msgx("Unexpected error: %s" % sys.exc_info()[0])
+        msg(r.status_code)
+        self.assertEqual(r.status_code, 401, "Try without a random token")
+
+
+        #-----------------------------------------------------------
+        msgt("(1d) Retrieve metadata")
+        #-----------------------------------------------------------
         params = self.getWorldMapTokenDict()
         
         msg('api_url: %s' % api_url)     
@@ -109,6 +158,9 @@ class RetrieveFileMetadataTestCase(WorldMapBaseTest):
         except:
             msgx("Unexpected error: %s" % sys.exc_info()[0])
 
+        #-----------------------------------------------------------
+        msgt("(1e) Check metadata")
+        #-----------------------------------------------------------
         self.assertEqual(r.status_code, 200, "API call successful, with a 200 response?")
         msg(r.text)
         
@@ -207,8 +259,8 @@ class RetrieveFileMetadataTestCase(WorldMapBaseTest):
 def get_suite():
     #suite = unittest.TestLoader().loadTestsFromTestCase(RetrieveFileMetadataTestCase)
     suite = unittest.TestSuite()
-    #suite.addTest(RetrieveFileMetadataTestCase('run_test01_metadata'))
-    suite.addTest(RetrieveFileMetadataTestCase('run_test_02_delete_token'))
+    suite.addTest(RetrieveFileMetadataTestCase('run_test01_metadata'))
+    suite.addTest(RetrieveFileMetadataTestCase('run_test_03_delete_token'))
     
     #suite.addTest(WidgetTestCase('test_resize'))
     return suite
