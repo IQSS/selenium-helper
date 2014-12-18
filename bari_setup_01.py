@@ -64,14 +64,30 @@ class LoadShapefileTester:
 
     def start_process(self):
     
-        self.make_dataverse_from_dict(self.get_test_dataverse_params('Eat Boutique'))
+        self.make_dataverse_from_dict(self.get_test_dataverse_params('Gray Matter'))
+        #self.make_dataverse_from_dict(self.get_test_dataverse_params('Eat Boutique'))
 
-        self.start_adding_new_data_including_files()
+        self.start_adding_new_data_including_files(self.get_sample_dataset_02_params())
         
         #delete_dataverse_by_alias(self.sdriver, 'shapefile-test')
+    
+    def get_sample_dataset_01_params(self):
+        return dict(title="Bob Dylan's 115th Dream"\
+                    , author='Bob Dylan'\
+                    , datasetContact='bd@harvard.edu'\
+                    , dsDescription='Shapefile upload test.'\
+                    , upload_file_path=abspath(join('input', 'social_disorder_in_boston_yqh.zip'))
+                    )
 
+    def get_sample_dataset_02_params(self):
+        return dict(title="Mike's meditation discovery"\
+                    , author='Sara Lazar'\
+                    , datasetContact='lazar@harvard.edu'\
+                    , dsDescription='Fix your brain.'\
+                    , upload_file_path=abspath(join('input', 'meditation-gray-matter-rebuild.pdf'))
+                    )
 
-    def start_adding_new_data_including_files(self):
+    def start_adding_new_data_including_files(self, dataset_params):
           msg('Add new dataset')
           assert self.sdriver is not None, "self.sdriver cannot be None"
 
@@ -83,10 +99,10 @@ class LoadShapefileTester:
           # find <a rel="title" class="pre-input-tag"></a>
           prefix = 'pre-input-'
           #d.find_input_box_and_fill('%stitle' % prefix, 'Lily, Rosemary, and the Jack of Hearts')
-          d.find_input_box_and_fill('%stitle' % prefix, "Bob Dylan's 115th Dream")
-          d.find_input_box_and_fill('%sauthor' % prefix, 'Bob Dylan')
-          d.find_input_box_and_fill('%sdatasetContact' % prefix, 'bd@harvard.edu')
-          d.find_input_box_and_fill('%sdsDescription' % prefix, 'Shapefile upload test.', input_type='textarea')
+          d.find_input_box_and_fill('%stitle' % prefix, dataset_params['title'])
+          d.find_input_box_and_fill('%sauthor' % prefix, dataset_params['author'])
+          d.find_input_box_and_fill('%sdatasetContact' % prefix, dataset_params['datasetContact'])
+          d.find_input_box_and_fill('%sdsDescription' % prefix, dataset_params['dsDescription'], input_type='textarea')
 
           d.find_input_box_and_fill('%snotesText' % prefix\
                             , """The festival was over and the boys were all planning for a fall
@@ -103,11 +119,11 @@ class LoadShapefileTester:
           file_upload_element = d.driver.find_element_by_id('datasetForm:tabView:fileUpload_input')
           
           # send a file over
-          fpath = abspath(join('input', 'social_disorder_in_boston_yqh.zip'))
-          file_upload_element.send_keys(fpath)
+         # fpath = abspath(join('input', 'social_disorder_in_boston_yqh.zip'))
+          file_upload_element.send_keys(dataset_params['upload_file_path'])
 
           # send another file over
-          #fpath2 = abspath(join('input', 'flare.json'))          
+          #fpath2 = abspath(join('input', 'meditation-gray-matter-rebuild.pdf'))          
           #file_upload_element.send_keys(fpath2)
           pause_script(5)
           
