@@ -1,4 +1,7 @@
 """
+################
+MOVED TO: https://github.com/IQSS/geoconnect-tester
+################
 Quick test, need to use Dataverse native+sword API to 
     (1) create dataverse, publish dataverse
     (2) create dataset with file, publish dataset

@@ -1,3 +1,8 @@
+"""
+################
+MOVED TO: https://github.com/IQSS/geoconnect-tester
+################
+"""
 import os
 from os.path import join, abspath
 from selenium_helper import SeleniumHelper
