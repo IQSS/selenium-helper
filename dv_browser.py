@@ -147,8 +147,8 @@ class CreateDatasetTester:
 
         msg('fill in username/pw click login')
         # login
-        d.find_by_id_send_keys('loginForm:credentialsContainer2:0:credValue', self.auth[0])  
-        d.find_by_id_send_keys('loginForm:credentialsContainer2:1:sCredValue', self.auth[1])      
+        d.find_by_id_send_keys('loginForm:credentialsContainer:0:credValue', self.auth[0])  
+        d.find_by_id_send_keys('loginForm:credentialsContainer:1:sCredValue', self.auth[1])      
         d.find_by_id_click('loginForm:login')
         self.sleep()
                 
@@ -191,7 +191,7 @@ def run_as_user(dataverse_url, auth, expected_name):
     tester.browse_around(loops=100)
 
 def run_user_pete(dataverse_url):
-    auth = ('pete', 'pete')
+    auth = ('pete', 'Pete123')
     run_as_user(dataverse_url, auth, 'Pete Privileged')
 
 def run_user_uma(dataverse_url):
@@ -210,10 +210,14 @@ def run_user_gabbi(dataverse_url):
     auth = ('gabbi', 'gabbi')
     run_as_user(dataverse_url, auth, 'Gabbi Guest')
 
+def run_user_admin(dataverse_url):
+    auth = ('dataverseAdmin', 'admin')
+    run_as_user(dataverse_url, auth, 'Dataverse Admin')
+
 
 
 if __name__=='__main__':
-    dataverse_url = 'https://dvn-build.hmdc.harvard.edu/'
+    dataverse_url = 'http://localhost:8080/dataverse.xhtml'
     #dataverse_url = 'https://shibtest.dataverse.org'
     
     
@@ -222,6 +226,7 @@ if __name__=='__main__':
                     , ('3' , run_user_nick)\
                     , ('4' , run_user_cathy)\
                     , ('5' , run_user_gabbi)\
+                    , ('6' , run_user_admin)\
                     ] )
     
     if len(sys.argv) == 2 and sys.argv[1] in user_choices.keys():
